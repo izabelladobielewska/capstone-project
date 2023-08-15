@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export default function Card({ card }) {
   return (
-    <Article className="game-card">
+    <Article>
       <div>
         <h2>{card.name}</h2>
         <h3>Prepare:</h3>
