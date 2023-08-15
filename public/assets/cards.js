@@ -13,7 +13,8 @@ const cards = [
       "- plant,\n" +
       "- animal,\n" +
       "- body of water,\n" +
-      "- a brand of a car,\n" +
+      "- a brand of a car.\n" +
+      "\n" +
       "👉 The starting person says the alphabet silently and the next person on left says: Stop!. Then, the first person reveals the letter. Everyone completes their tables with name of the type of objects that need to start with the indicated letter. For example, if that letter was 'p' then the columns should look something like this: \n" +
       "'Country: Poland, Town: Pittsburgh, Animal: Pig, Plant: Plum Tree,  River: Pacific Ocean, Brand: Peugeot.'",
     rules:
@@ -28,7 +29,7 @@ const cards = [
     company: ["me + 1", "more people"],
     weather: ["cloudy", "rainy", "sunny", "windy"],
     name: "Hit the Rock",
-    Prepare: "- a small rock, \n" + "- stick, \n" + "- a 1,5m string,",
+    prepare: "- a small rock, \n" + "- stick, \n" + "- a 1,5m string,",
     howToPlay:
       "👉 Attach the string to the rock. One person runs away pulling the rope while the other person tries to hit the rock with the stick.",
     rules:
@@ -41,99 +42,55 @@ const cards = [
     company: ["me + 1", "more people"],
     weather: ["cloudy", "rainy", "sunny", "windy"],
     name: "Spot the Rock",
-    Prepare: "At least three pebbles per person.",
+    prepare: "",
     howToPlay: "👉 Find as many green pebbles as you can.",
     rules: "Find more pebbles than your partner, you have 5 minutes.",
   },
 
   {
-    id: 112,
+    id: 113,
     location: ["boat", "forest"],
     company: ["just me", "me + 1", "more people"],
     weather: ["cloudy", "rainy", "sunny", "windy"],
     name: "Throw the Rock",
-    Prepare: "A pebble or a rock.",
+    prepare: "A pebble or a rock.",
     howToPlay:
       "👉 Throw your pebble as far as you can into the water or into the field.",
     rules:
       "• The first player throws the rock. , \n" +
-      "• Then the next player tries to throw a rock farther than the previous person. , \n" +
+      "• Then the next player tries to throw a rock farther than the previous person. \n" +
       "• After each round the person who made the furthest throw gets a point. \n" +
       "• Warm up, try not to pinch a nerve.\n" +
       "🫵 Do not aim at people.",
   },
+  {
+    id: 114,
+    location: ["mountains", "forcityest"],
+    company: ["just me", "me + 1", "more people"],
+    weather: ["cloudy", "rainy", "sunny", "windy"],
+    name: "Match the Rocks",
+    prepare: "A pebble or a rock.",
+    howToPlay: "👉 Throw a rock aiming to touch the other rock.",
+    rules:
+      "• Find a place that is open and fairly flat. Mark the starting position. Toss the coin to decide who goes first. The beginning player throws the rock, called it jack. It should land 5-12 meters from the starting position. \n" +
+      "• All rocks must be thrown from within the starting circle and with both feet on the ground. The player attempts to throw the rock so that it lands as close to the jack as possible. \n" +
+      "• It is okay to hit the jack. \n" +
+      "• Once a player has used all their rocks, the other side is allowed to throw the rest of their rocks. \n" +
+      "• When all rocks are thrown, the points are counted. \n" +
+      "• The team that has the boule closest to the jack wins the round.",
+  },
+  {
+    id: 115,
+    location: ["city", "boat"],
+    company: ["just me", "me + 1", "more people", "dog"],
+    weather: ["cloudy", "rainy", "sunny", "windy"],
+    name: "Spin",
+    prepare: "A pebble or a rock.",
+    howToPlay: "👉 Spin around your axis.",
+    rules:
+      "• Round 1. Spin 5 times around your axis as fast as you can. \n" +
+      "• Round 2. Spin as many times as possible. If you throw up, you loose the round.",
+  },
 ];
 
 export default cards;
-
-/*
-
-id: 113
-Location: boat, forest
-Company: just me, me + 1, more people
-Weather: 
-Name: “Throw the rock”
-Prepare: 
-A pebble or a rock. 
-
-How to play:
-Throw your pebble as far as you can into the water or into the field.
-
-Rules:
-The first player throws the rock. Then the next player tries to throw a rock farther than the previous person. After each round the person who made the furthest throw gets a point. 
-Warm up, try not to pinch a nerve.
-Do not aim at people. 
-_________
-
-id: 114
-Location: mountains, city
-Company: just me, me + 1, more people
-Weather: 
-Name: “Match the rocks”
-Prepare: 
-A pebble or a rock. 
-
-How to play:
-Throw a rock aiming to touch the other rock.
-
-Rules:
-Find a spacious, secluded place. First, player one throws a rock. Then, the next player tries to throw a rock with such precision, to land as close to the first rock as possible. Then the next person. Each person throws once. After each round the person who got the closest to the first rock gets a point. Play 5 rounds. You can also play alone. 
-
-_________
-
-id: 115
-Location: city, boat
-Company: just me, me + 1, more people, dog
-Weather: 
-Name: “Spin”
-Prepare: 
-—
-How to play:
-Spin around your axis.
-
-Rules:
-Round 1. Spin 5 times around your axis as fast as you can.
-Round 2. Spin as many times as possible.  If you throw up, you loose this round.
-
-_________
-
-
-
-_________
-
-{
-id: 11
-Location: 
-Company: 
-Weather: 
-Name: “”
-Prepare: 
-—
-How to play:
-
-Rules:
-},
-
-
-
-*/
