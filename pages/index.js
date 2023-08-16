@@ -23,14 +23,9 @@ export default function HomePage() {
     }
   }
   return (
-    <Main>
-      <Header />
+    <>
       <Card card={cards[currentIndex]} />
       <Pagination handlePrev={handlePrev} handleNext={handleNext} />
-    </Main>
+    </>
   );
 }
-
-const Main = styled.main`
-  margin: 20px 20vw;
-`;
