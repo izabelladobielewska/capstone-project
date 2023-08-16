@@ -6,13 +6,12 @@ export default function Header() {
     <header>
       <h1>Endstagram</h1>
       <Button>
-        <Link href="/preferences-form">Preferences</Link>
+        <Link href="/">Home</Link>
       </Button>
       <Button>
-        <Link href="/">Home</Link>
+        <Link href="/preferences-form">Preferences</Link>
       </Button>
     </header>
   );
 }
-
 const Button = styled.button``;
