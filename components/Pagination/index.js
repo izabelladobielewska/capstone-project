@@ -14,10 +14,5 @@ export default function Pagination({ handlePrev, handleNext }) {
 
 const Button = styled.button`
   border-radius: 2px;
+  margin: 1.7rem;
 `;
-
-// / *
-// type="button"
-// onClick={() =>
-//   setPage((currentPage) => (currentPage === 0 ? 0 : currentPage - 1))
-// }

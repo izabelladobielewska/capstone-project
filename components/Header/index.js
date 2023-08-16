@@ -1,7 +1,7 @@
 export default function Header() {
   return (
-    <header className="header">
-      <h1 className="header__title">Endstagram</h1>
+    <header>
+      <h1>Endstagram</h1>
     </header>
   );
 }
