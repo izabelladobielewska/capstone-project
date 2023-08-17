@@ -13,7 +13,7 @@ export default function PreferencesForm() {
 
   return (
     <>
-      <h3>I am bored, and</h3>
+      <h3>I am bored, and...</h3>
       {availableLocations.map((location, i) => (
         <PreferencesButton
           key={location}

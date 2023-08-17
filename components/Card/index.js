@@ -17,13 +17,15 @@ export default function Card({ card }) {
 }
 
 const Article = styled.article`
-  box-shadow: 0px 0px 5px #ccc;
+  box-shadow: 0px 0px 10px #ccc;
   border-radius: 10px;
   padding: 20px;
-  height: 80vh;
   overflow-y: auto;
+  height: 100%;
+  background-color: white;
 `;
 
 const StyledText = styled.p`
   white-space: pre-wrap;
+  color: #210203;
 `;

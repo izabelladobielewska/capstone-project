@@ -14,6 +14,4 @@ export default function App({ Component, pageProps }) {
   );
 }
 
-const Main = styled.main`
-  margin: 20px 20vw;
-`;
+const Main = styled.main``;

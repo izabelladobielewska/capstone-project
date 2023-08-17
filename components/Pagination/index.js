@@ -15,4 +15,8 @@ export default function Pagination({ handlePrev, handleNext }) {
 const Button = styled.button`
   border-radius: 2px;
   margin: 1.7rem;
+  padding: 0.5rem 1rem;
+  background-color: "white";
+  border: 2px solid #210203;
+  border-radius: 5px;
 `;

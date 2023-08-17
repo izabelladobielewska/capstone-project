@@ -14,4 +14,9 @@ export default function Header() {
     </header>
   );
 }
-const Button = styled.button``;
+const Button = styled.button`
+  background-color: transparent;
+  border: none;
+  margin: 0.5em 1em;
+  padding: 1em;
+`;

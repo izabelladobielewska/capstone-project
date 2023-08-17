@@ -12,7 +12,9 @@ export default createGlobalStyle`
     font-family: system-ui;
     width: 100%;
     height: 100%;
+    max-width: 480px;
     margin-inline: auto;
+    background-color: var(--base-color)
   }
 
   :root {
