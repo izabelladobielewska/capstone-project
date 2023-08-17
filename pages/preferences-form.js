@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 export default function PreferencesForm() {
   const availableLocations = [
-    "I'm stuck in a boat",
+    "I'm living my best life on a boat",
     "I'm in a forest",
     "I'm in a city",
     "I'm in the mountains",
