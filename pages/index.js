@@ -1,13 +1,11 @@
-import Header from "@/components/Header/index.js";
 import cards from "../public/assets/cards.js";
 import Card from "@/components/Card/index.js";
 import Pagination from "@/components/Pagination/index.js";
-import styled from "styled-components";
 import { useState } from "react";
 
-export default function HomePage() {
+export default function HomePage({ selectedLocations }) {
   const [currentIndex, setCurrentIndex] = useState(0);
-
+  /*shuffle will be added here*/
   function handleNext() {
     if (currentIndex === cards.length - 1) {
       setCurrentIndex(0);
@@ -29,3 +27,9 @@ export default function HomePage() {
     </>
   );
 }
+// const filteredGames = games.filter((game) => {
+//   return game.preferences.some((pref) =>
+//     selectedLocations.includes(pref)
+//   );
+// });
+// setFilteredResults(filteredGames);
