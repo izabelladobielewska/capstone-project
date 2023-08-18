@@ -5,9 +5,18 @@ import { useState } from "react";
 
 export default function HomePage({ selectedLocations }) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const filteredCards = cards.filter((card) => {
+    if (selectedLocations.length > 0) {
+      return card.location.some((locationICanPlayThisGameIn) =>
+        selectedLocations.includes(locationICanPlayThisGameIn)
+      );
+    }
+    return true;
+  });
+
   /*shuffle will be added here*/
   function handleNext() {
-    if (currentIndex === cards.length - 1) {
+    if (currentIndex === filteredCards.length - 1) {
       setCurrentIndex(0);
     } else {
       setCurrentIndex(currentIndex + 1);
@@ -15,21 +24,15 @@ export default function HomePage({ selectedLocations }) {
   }
   function handlePrev() {
     if (currentIndex === 0) {
-      setCurrentIndex(cards.length - 1);
+      setCurrentIndex(filteredCards.length - 1);
     } else {
       setCurrentIndex(currentIndex - 1);
     }
   }
   return (
     <>
-      <Card card={cards[currentIndex]} />
+      <Card card={filteredCards[currentIndex]} />
       <Pagination handlePrev={handlePrev} handleNext={handleNext} />
     </>
   );
 }
-// const filteredGames = games.filter((game) => {
-//   return game.preferences.some((pref) =>
-//     selectedLocations.includes(pref)
-//   );
-// });
-// setFilteredResults(filteredGames);

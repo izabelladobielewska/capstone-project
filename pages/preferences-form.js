@@ -6,10 +6,10 @@ export default function PreferencesForm({
 }) {
   const router = useRouter();
   const location = [
-    "I'm living my best life on a boat",
-    "I'm in a forest",
-    "I'm in a city",
-    "I'm in the mountains",
+    { text: "I'm living my best life on a boat", value: "boat" },
+    { text: "I'm in a forest", value: "forest" },
+    { text: "I'm in a city", value: "city" },
+    { text: "I'm in the mountains", value: "mountains" },
   ];
 
   function submitPreferences() {
@@ -21,8 +21,8 @@ export default function PreferencesForm({
       <h3>I am bored, and...</h3>
       {location.map((location, i) => (
         <PreferencesButton
-          key={location}
-          value={location}
+          key={location.value}
+          preference={location}
           selectedPreferences={selectedLocations}
           setPreferences={setSelectedLocations}
         />

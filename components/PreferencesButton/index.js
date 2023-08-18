@@ -1,25 +1,25 @@
 import styled from "styled-components";
 
 export default function PreferencesButton({
-  value,
+  preference,
   selectedPreferences,
   setPreferences,
 }) {
   function handleClick() {
-    if (selectedPreferences.includes(value)) {
+    if (selectedPreferences.includes(preference.value)) {
       setPreferences(
-        selectedPreferences.filter((preference) => preference !== value)
+        selectedPreferences.filter((pref) => pref !== preference.value)
       );
     } else {
-      setPreferences([...selectedPreferences, value]);
+      setPreferences([...selectedPreferences, preference.value]);
     }
   }
   return (
     <Button
       onClick={handleClick}
-      selected={selectedPreferences.includes(value)}
+      selected={selectedPreferences.includes(preference.value)}
     >
-      {value}
+      {preference.text}
     </Button>
   );
 }

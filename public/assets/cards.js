@@ -38,7 +38,7 @@ const cards = [
   },
   {
     id: 112,
-    location: ["boat", "forest"],
+    location: ["mountains", "forest"],
     company: ["me + 1", "more people"],
     weather: ["cloudy", "rainy", "sunny", "windy"],
     name: "Spot the Rock",
@@ -65,7 +65,7 @@ const cards = [
   },
   {
     id: 114,
-    location: ["mountains", "forcityest"],
+    location: ["mountains", "forest", "park"],
     company: ["just me", "me + 1", "more people"],
     weather: ["cloudy", "rainy", "sunny", "windy"],
     name: "Match the Rocks",

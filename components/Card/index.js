@@ -21,7 +21,7 @@ const Article = styled.article`
   border-radius: 10px;
   padding: 20px;
   overflow-y: auto;
-  height: 100%;
+  height: 70vh;
   background-color: white;
 `;
 
