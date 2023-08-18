@@ -1,9 +1,6 @@
-import { buildQueries } from "@testing-library/react";
 import styled from "styled-components";
-import { useState } from "react";
 
 export default function Pagination({ handlePrev, handleNext }) {
-  const [game, setGame] = useState();
   return (
     <section>
       <Button onClick={handlePrev}>Prev</Button>

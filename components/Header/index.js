@@ -1,22 +1,20 @@
-import Link from "next/link";
+import _Link from "next/link";
 import styled from "styled-components";
 
 export default function Header() {
   return (
     <header>
-      <h1>Endstagram</h1>
-      <Button>
-        <Link href="/">Home</Link>
-      </Button>
-      <Button>
-        <Link href="/preferences-form">Preferences</Link>
-      </Button>
+      <h1>
+        <Link href="/">Endstagram</Link>
+      </h1>
+      <Link href="/preferences-form">Preferences</Link>
     </header>
   );
 }
-const Button = styled.button`
+const Link = styled(_Link)`
   background-color: transparent;
   border: none;
-  margin: 0.5em 1em;
-  padding: 1em;
+  margin: 0.5em 1em 0.5em 0;
+  padding: 0;
+  text-decoration: none;
 `;

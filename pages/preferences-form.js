@@ -3,7 +3,7 @@ import { useState } from "react";
 import styled from "styled-components";
 
 export default function PreferencesForm() {
-  const availableLocations = [
+  const location = [
     "I'm stuck in a boat",
     "I'm in a forest",
     "I'm in a city",
@@ -14,7 +14,7 @@ export default function PreferencesForm() {
   return (
     <>
       <h3>I am bored, and...</h3>
-      {availableLocations.map((location, i) => (
+      {location.map((location, i) => (
         <PreferencesButton
           key={location}
           value={location}
