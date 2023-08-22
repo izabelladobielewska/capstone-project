@@ -93,15 +93,19 @@ const cards = [
   },
   {
     id: 117,
-    location: ["forest", "park"],
-    company: ["just me", "me + 1"],
-    weather: ["cloudy", "sunny", "rainy", "windy"],
+    location: ["forest"],
+    company: ["just me", "me + 1", "more people"],
+    weather: ["cloudy", "sunny", "rainy"],
     name: "Viking Darts",
-    prepare: "---",
-    howToPlay: "👉 Spin around your axis.",
+    prepare: "3 knifes or 3 wee axes",
+    howToPlay: "Throw the axes with precision.",
     rules:
-      "• Find a target and mark the starting position. It should be about 5 meters away from the target. an apple, a tree, a  \n" +
-      "• Round 2. Spin as many times as possible. If you throw up, you loose the round.",
+      "• Set up a target: a tree stump with bullseye markers with the fields for 8, 6, 4, 2 points. \n" +
+      "• Mark the starting position about 4 meters away from the target. \n" +
+      "• Hold the axe in one hand, underhand throws score 0 points \n" +
+      "• Throw your axes into the target and change turns.\n" +
+      "• The game has 3 rounds where each player throws 3 times.\n" +
+      "• If there is no winner by the end of the third round, the players do single throws until one of the players scores higher.",
   },
 ];
 
