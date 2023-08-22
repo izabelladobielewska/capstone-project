@@ -100,7 +100,7 @@ const cards = [
     prepare: "---",
     howToPlay: "👉 Spin around your axis.",
     rules:
-      "• Round 1. Spin 5 times around your axis as fast as you can. \n" +
+      "• Find a target and mark the starting position. It should be about 5 meters away from the target. an apple, a tree, a  \n" +
       "• Round 2. Spin as many times as possible. If you throw up, you loose the round.",
   },
 ];
