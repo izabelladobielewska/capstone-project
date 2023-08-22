@@ -3,15 +3,25 @@ import Card from "@/components/Card/index.js";
 import Pagination from "@/components/Pagination/index.js";
 import { useState } from "react";
 
-export default function HomePage({ selectedLocations }) {
+export default function HomePage({ selectedLocations, selectedWeathers }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const filteredCards = cards.filter((card) => {
+    let isAGoodGameSuggestion = true;
+
     if (selectedLocations.length > 0) {
-      return card.location.some((locationICanPlayThisGameIn) =>
+      isAGoodGameSuggestion = card.location.some((locationICanPlayThisGameIn) =>
         selectedLocations.includes(locationICanPlayThisGameIn)
       );
+      if (!isAGoodGameSuggestion) return false;
     }
-    return true;
+    if (selectedWeathers.length > 0) {
+      isAGoodGameSuggestion = card.weather.some((weatherICanPlayThisGameIn) =>
+        selectedWeathers.includes(weatherICanPlayThisGameIn)
+      );
+      if (!isAGoodGameSuggestion) return false;
+    }
+
+    return isAGoodGameSuggestion;
   });
 
   /*shuffle will be added here*/

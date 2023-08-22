@@ -89,6 +89,18 @@ const cards = [
     howToPlay: "👉 Spin around your axis.",
     rules:
       "• Round 1. Spin 5 times around your axis as fast as you can. \n" +
+      "• Round 2. Spin as many times as possible. If you throw up, you lose the round.",
+  },
+  {
+    id: 117,
+    location: ["forest", "park"],
+    company: ["just me", "me + 1"],
+    weather: ["cloudy", "sunny", "rainy", "windy"],
+    name: "Viking Darts",
+    prepare: "---",
+    howToPlay: "👉 Spin around your axis.",
+    rules:
+      "• Round 1. Spin 5 times around your axis as fast as you can. \n" +
       "• Round 2. Spin as many times as possible. If you throw up, you loose the round.",
   },
 ];
