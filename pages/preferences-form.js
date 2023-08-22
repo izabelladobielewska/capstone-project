@@ -25,9 +25,9 @@ export default function PreferencesForm({
 
   const companions = [
     { text: "just me", value: "alone" },
-    { text: "1 person + me", value: "me+1" },
+    { text: "1 person + me", value: "me + 1" },
     { text: "dog", value: "dog" },
-    { text: "more people", value: "more-people" },
+    { text: "more people", value: "more people" },
   ];
 
   function submitPreferences() {
