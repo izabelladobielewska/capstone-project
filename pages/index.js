@@ -50,13 +50,17 @@ export default function HomePage({
     }
   }
   if (filteredCards.length <= 0) {
-    return <h3>ummm to be filled later</h3>;
+    return <h3> ummm to be filled later</h3>;
   }
 
   return (
     <>
       <Card card={filteredCards[currentIndex]} />
-      <Pagination handlePrev={handlePrev} handleNext={handleNext} />
+      <Pagination
+        handlePrev={handlePrev}
+        handleNext={handleNext}
+        deckSize={filteredCards.length}
+      />
     </>
   );
 }
