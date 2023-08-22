@@ -50,7 +50,7 @@ const cards = [
   {
     id: 113,
     location: ["boat", "forest"],
-    company: ["just me", "me + 1", "more people"],
+    company: ["alone", "me + 1", "more people"],
     weather: ["cloudy", "sunny", "windy"],
     name: "Throw the Rock",
     prepare: "A pebble or a rock.",
@@ -66,7 +66,7 @@ const cards = [
   {
     id: 114,
     location: ["mountains", "forest", "park"],
-    company: ["just me", "me + 1", "more people"],
+    company: ["alone", "me + 1", "more people"],
     weather: ["cloudy", "sunny", "windy"],
     name: "Match the Rocks",
     prepare: "A pebble or a rock.",
@@ -82,7 +82,7 @@ const cards = [
   {
     id: 115,
     location: ["city", "boat"],
-    company: ["just me", "me + 1", "more people", "dog"],
+    company: ["alone", "me + 1", "more people", "dog"],
     weather: ["cloudy", "sunny", "rainy", "windy"],
     name: "Brain mixer",
     prepare: "---",
@@ -94,7 +94,7 @@ const cards = [
   {
     id: 117,
     location: ["forest"],
-    company: ["just me", "me + 1", "more people"],
+    company: ["alone", "me + 1", "more people"],
     weather: ["cloudy", "sunny", "rainy"],
     name: "Viking Darts",
     prepare: "3 knifes or 3 wee axes",

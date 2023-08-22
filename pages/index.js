@@ -49,6 +49,10 @@ export default function HomePage({
       setCurrentIndex(currentIndex - 1);
     }
   }
+  if (filteredCards.length <= 0) {
+    return <h3>ummm to be filled later</h3>;
+  }
+
   return (
     <>
       <Card card={filteredCards[currentIndex]} />
