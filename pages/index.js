@@ -3,7 +3,11 @@ import Card from "@/components/Card/index.js";
 import Pagination from "@/components/Pagination/index.js";
 import { useState } from "react";
 
-export default function HomePage({ selectedLocations, selectedWeathers }) {
+export default function HomePage({
+  selectedLocations,
+  selectedWeathers,
+  selectedCompanions,
+}) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const filteredCards = cards.filter((card) => {
     let isAGoodGameSuggestion = true;
@@ -17,6 +21,12 @@ export default function HomePage({ selectedLocations, selectedWeathers }) {
     if (selectedWeathers.length > 0) {
       isAGoodGameSuggestion = card.weather.some((weatherICanPlayThisGameIn) =>
         selectedWeathers.includes(weatherICanPlayThisGameIn)
+      );
+      if (!isAGoodGameSuggestion) return false;
+    }
+    if (selectedCompanions.length > 0) {
+      isAGoodGameSuggestion = card.company.some((companyICanPlayThisGameWith) =>
+        selectedCompanions.includes(companyICanPlayThisGameWith)
       );
       if (!isAGoodGameSuggestion) return false;
     }
