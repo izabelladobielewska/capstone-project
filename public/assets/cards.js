@@ -40,7 +40,7 @@ const cards = [
     id: 112,
     location: ["mountains", "forest"],
     company: ["me + 1", "more people"],
-    weather: ["cloudy", "rainy", "sunny", "windy"],
+    weather: ["cloudy", "sunny", "windy"],
     name: "Spot the Rock",
     prepare: "",
     howToPlay: "👉 Find as many green pebbles as you can.",
@@ -50,8 +50,8 @@ const cards = [
   {
     id: 113,
     location: ["boat", "forest"],
-    company: ["just me", "me + 1", "more people"],
-    weather: ["cloudy", "rainy", "sunny", "windy"],
+    company: ["alone", "me + 1", "more people"],
+    weather: ["cloudy", "sunny", "windy"],
     name: "Throw the Rock",
     prepare: "A pebble or a rock.",
     howToPlay:
@@ -66,8 +66,8 @@ const cards = [
   {
     id: 114,
     location: ["mountains", "forest", "park"],
-    company: ["just me", "me + 1", "more people"],
-    weather: ["cloudy", "rainy", "sunny", "windy"],
+    company: ["alone", "me + 1", "more people"],
+    weather: ["cloudy", "sunny", "windy"],
     name: "Match the Rocks",
     prepare: "A pebble or a rock.",
     howToPlay: "👉 Throw a rock aiming to touch the other rock.",
@@ -82,14 +82,30 @@ const cards = [
   {
     id: 115,
     location: ["city", "boat"],
-    company: ["just me", "me + 1", "more people", "dog"],
-    weather: ["cloudy", "rainy", "sunny", "windy"],
-    name: "Spin",
-    prepare: "A pebble or a rock.",
+    company: ["alone", "me + 1", "more people", "dog"],
+    weather: ["cloudy", "sunny", "rainy", "windy"],
+    name: "Brain mixer",
+    prepare: "---",
     howToPlay: "👉 Spin around your axis.",
     rules:
       "• Round 1. Spin 5 times around your axis as fast as you can. \n" +
-      "• Round 2. Spin as many times as possible. If you throw up, you loose the round.",
+      "• Round 2. Spin as many times as possible. If you throw up, you lose the round.",
+  },
+  {
+    id: 117,
+    location: ["forest"],
+    company: ["alone", "me + 1", "more people"],
+    weather: ["cloudy", "sunny", "rainy"],
+    name: "Viking Darts",
+    prepare: "3 knifes or 3 wee axes",
+    howToPlay: "Throw the axes with precision.",
+    rules:
+      "• Set up a target: a tree stump with bullseye markers with the fields for 8, 6, 4, 2 points. \n" +
+      "• Mark the starting position about 4 meters away from the target. \n" +
+      "• Hold the axe in one hand, underhand throws score 0 points \n" +
+      "• Throw your axes into the target and change turns.\n" +
+      "• The game has 3 rounds where each player throws 3 times.\n" +
+      "• If there is no winner by the end of the third round, the players do single throws until one of the players scores higher.",
   },
 ];
 
