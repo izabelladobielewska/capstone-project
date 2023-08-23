@@ -90,5 +90,5 @@ const Section = styled.section`
   gap: 0.8rem;
 `;
 const StyledText = styled.p`
-  margin: 0px auto 0px auto;
+  margin: 0px;
 `;
