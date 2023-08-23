@@ -3,7 +3,7 @@ import Card from "@/components/Card/index.js";
 import Pagination from "@/components/Pagination/index.js";
 import { useState } from "react";
 
-export default function HomePage({
+export default function CardDeck({
   selectedLocations,
   selectedWeathers,
   selectedCompanions,
@@ -50,7 +50,7 @@ export default function HomePage({
     }
   }
   if (filteredCards.length <= 0) {
-    return <h3> ummm to be filled later</h3>;
+    return <p> Oh no, No cards that fit your preferences. </p>;
   }
 
   return (

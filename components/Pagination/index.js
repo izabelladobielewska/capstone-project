@@ -2,17 +2,21 @@ import styled from "styled-components";
 
 export default function Pagination({ handlePrev, handleNext, deckSize }) {
   return (
-    <section>
+    <Section>
       <Button onClick={handlePrev}>Prev</Button>
       <span> {deckSize} matching cards </span>
       <Button onClick={handleNext}>Next</Button>
-    </section>
+    </Section>
   );
 }
 
+const Section = styled.section`
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+`;
 const Button = styled.button`
   border-radius: 2px;
-  margin: 1.7rem;
   padding: 0.5rem 1rem;
   background-color: "white";
   border: 2px solid #210203;

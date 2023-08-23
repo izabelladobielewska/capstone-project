@@ -2,6 +2,7 @@ import GlobalStyle from "../styles";
 import Header from "@/components/Header";
 import styled from "styled-components";
 import { useState } from "react";
+import PreferenceTags from "@/components/PreferenceTags";
 
 export default function App({ Component, pageProps }) {
   const [selectedLocations, setSelectedLocations] = useState([]);
@@ -13,17 +14,14 @@ export default function App({ Component, pageProps }) {
       <GlobalStyle />
       <Main>
         <Header />
-        <ul>
-          {selectedLocations.map((location) => (
-            <li key={location}>{location}</li>
-          ))}
-          {selectedWeathers.map((weather) => (
-            <li key={weather}>{weather}</li>
-          ))}
-          {selectedCompanions.map((company) => (
-            <li key={company}>{company}</li>
-          ))}
-        </ul>
+        <PreferenceTags
+          selectedLocations={selectedLocations}
+          setSelectedLocations={setSelectedLocations}
+          selectedCompanions={selectedCompanions}
+          setSelectedCompanions={setSelectedCompanions}
+          selectedWeathers={selectedWeathers}
+          setSelectedWeathers={setSelectedWeathers}
+        />
         <Component
           {...pageProps}
           selectedLocations={selectedLocations}
@@ -38,4 +36,6 @@ export default function App({ Component, pageProps }) {
   );
 }
 
-const Main = styled.main``;
+const Main = styled.main`
+  margin: 1rem;
+`;
