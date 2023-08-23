@@ -9,56 +9,65 @@ export default function PreferenceTags({
   setSelectedWeathers,
 }) {
   return (
-    <Section>
-      {selectedLocations.map((location) => (
-        <Tag key={location} category="location">
-          {location + " "}
-          <span
-            onClick={() => {
-              setSelectedLocations(
-                selectedLocations.filter(
-                  (locationInList) => locationInList !== location
-                )
-              );
-            }}
-          >
-            &times;
-          </span>
-        </Tag>
-      ))}
-      {selectedWeathers.map((weather) => (
-        <Tag key={weather} category="weather">
-          {weather + " "}
-          <span
-            onClick={() => {
-              setSelectedWeathers(
-                selectedWeathers.filter(
-                  (weatherInList) => weatherInList !== weather
-                )
-              );
-            }}
-          >
-            &times;
-          </span>
-        </Tag>
-      ))}
-      {selectedCompanions.map((company) => (
-        <Tag key={company} category="company">
-          {company + " "}
-          <span
-            onClick={() => {
-              setSelectedCompanions(
-                selectedCompanions.filter(
-                  (companionInList) => companionInList !== company
-                )
-              );
-            }}
-          >
-            &times;
-          </span>
-        </Tag>
-      ))}
-    </Section>
+    <>
+      <div>
+        <h3>Congrats!</h3>
+        <StyledText>
+          Turns out you don´t need to look at your phone. Here are some
+          alternative activities for you:
+        </StyledText>
+      </div>
+      <Section>
+        {selectedLocations.map((location) => (
+          <Tag key={location} category="location">
+            {location + " "}
+            <span
+              onClick={() => {
+                setSelectedLocations(
+                  selectedLocations.filter(
+                    (locationInList) => locationInList !== location
+                  )
+                );
+              }}
+            >
+              &times;
+            </span>
+          </Tag>
+        ))}
+        {selectedWeathers.map((weather) => (
+          <Tag key={weather} category="weather">
+            {weather + " "}
+            <span
+              onClick={() => {
+                setSelectedWeathers(
+                  selectedWeathers.filter(
+                    (weatherInList) => weatherInList !== weather
+                  )
+                );
+              }}
+            >
+              &times;
+            </span>
+          </Tag>
+        ))}
+        {selectedCompanions.map((company) => (
+          <Tag key={company} category="company">
+            {company + " "}
+            <span
+              onClick={() => {
+                setSelectedCompanions(
+                  selectedCompanions.filter(
+                    (companionInList) => companionInList !== company
+                  )
+                );
+              }}
+            >
+              &times;
+            </span>
+          </Tag>
+        ))}
+      </Section>
+    </>
   );
 }
 const Tag = styled.div`
@@ -76,7 +85,10 @@ const Tag = styled.div`
 const Section = styled.section`
   display: flex;
   flex-wrap: wrap;
-  padding: 0.5rem 0;
+  padding: 0.7rem 0;
   justify-content: flex-end;
   gap: 0.8rem;
+`;
+const StyledText = styled.p`
+  margin: 0px auto 0px auto;
 `;
