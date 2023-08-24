@@ -1,12 +1,16 @@
 import cards from "../public/assets/cards.js";
 import Card from "@/components/Card/index.js";
 import Pagination from "@/components/Pagination/index.js";
+import PreferenceTags from "@/components/PreferenceTags/index.js";
 import { useState } from "react";
 
-export default function HomePage({
+export default function CardDeck({
   selectedLocations,
   selectedWeathers,
   selectedCompanions,
+  setSelectedCompanions,
+  setSelectedLocations,
+  setSelectedWeathers,
 }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const filteredCards = cards.filter((card) => {
@@ -50,11 +54,19 @@ export default function HomePage({
     }
   }
   if (filteredCards.length <= 0) {
-    return <h3> ummm to be filled later</h3>;
+    return <p> Oh no, no cards that fit your preferences. </p>;
   }
 
   return (
     <>
+      <PreferenceTags
+        selectedLocations={selectedLocations}
+        setSelectedLocations={setSelectedLocations}
+        selectedCompanions={selectedCompanions}
+        setSelectedCompanions={setSelectedCompanions}
+        selectedWeathers={selectedWeathers}
+        setSelectedWeathers={setSelectedWeathers}
+      />
       <Card card={filteredCards[currentIndex]} />
       <Pagination
         handlePrev={handlePrev}

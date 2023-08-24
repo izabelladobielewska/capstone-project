@@ -37,7 +37,7 @@ export default function PreferencesForm({
   return (
     <>
       <>
-        <span>I am bored, and...</span>
+        <p>I am bored, and...</p>
         {locations.map((location, i) => (
           <PreferencesButton
             key={location.value}
@@ -46,7 +46,7 @@ export default function PreferencesForm({
             setPreferences={setSelectedLocations}
           />
         ))}
-        <span>The weather is</span>
+        <p>The weather is</p>
         {weathers.map((weather, i) => (
           <PreferencesButton
             key={weather.value}
@@ -55,7 +55,7 @@ export default function PreferencesForm({
             setPreferences={setSelectedWeathers}
           />
         ))}
-        <span>My company is </span>
+        <p>My company is </p>
         {companions.map((company, i) => (
           <PreferencesButton
             key={company.value}

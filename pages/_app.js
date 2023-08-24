@@ -7,23 +7,11 @@ export default function App({ Component, pageProps }) {
   const [selectedLocations, setSelectedLocations] = useState([]);
   const [selectedWeathers, setSelectedWeathers] = useState([]);
   const [selectedCompanions, setSelectedCompanions] = useState([]);
-
   return (
     <>
       <GlobalStyle />
       <Main>
         <Header />
-        <ul>
-          {selectedLocations.map((location) => (
-            <li key={location}>{location}</li>
-          ))}
-          {selectedWeathers.map((weather) => (
-            <li key={weather}>{weather}</li>
-          ))}
-          {selectedCompanions.map((company) => (
-            <li key={company}>{company}</li>
-          ))}
-        </ul>
         <Component
           {...pageProps}
           selectedLocations={selectedLocations}
@@ -38,4 +26,6 @@ export default function App({ Component, pageProps }) {
   );
 }
 
-const Main = styled.main``;
+const Main = styled.main`
+  margin: 1rem;
+`;

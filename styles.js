@@ -6,6 +6,12 @@ export default createGlobalStyle`
   *::after {
     box-sizing: border-box;
   }
+  :root {
+    --base-color: #F2EBE3;
+    --primary-color: #210203;
+    --secondary-color: #D0A7E2;
+    --terciary-color: #37A994;
+  }
 
   body {
     margin: 0;
@@ -17,10 +23,4 @@ export default createGlobalStyle`
     background-color: var(--base-color)
   }
 
-  :root {
-    --base-color: #F2EBE3;
-    --primary-color: #210203;
-    --secondary-color: #D0A7E2;
-    --terciary-color: #37A994;
-  }
 `;
