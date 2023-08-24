@@ -13,8 +13,8 @@ export default function PreferenceTags({
       <div>
         <h3>Congrats!</h3>
         <StyledText>
-          Turns out you don´t need to look at your phone. Here are some
-          alternative activities for you:
+          turns there are actually some analog activities for you. Here are some
+          ideas for you::
         </StyledText>
       </div>
       <Section>
