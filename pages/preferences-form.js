@@ -78,5 +78,4 @@ const StyledText = styled.p`
   font-size: 1rem;
   padding-top: 1rem;
   font-weight: normal;
-  font-color: "#3f0469";
 `;
