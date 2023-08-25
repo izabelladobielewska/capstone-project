@@ -1,14 +1,17 @@
-import { Schema, model, models } from "mongoose";
+// import { Schema, model } from "mongoose";
 
-const testSchema = new mongoose.Schema({
-  name: String,
-  email: {
-    type: String,
-    required: true,
-    unique: true,
-  },
-});
+// const cardSchema = new Schema({
+//   id: Number,
+//   name: String,
+//   location: Array,
+//   company: Array,
+//   weather: Array,
+//   prepare: String,
+//   howToPlay: String,
+//   rules: String,
+//   rating: Number,
+// });
 
-const Test = models.Test || model("Test", testSchema);
+// const CardsModel = model("Test", cardSchema);
 
-export default Test;
+// export default CardsModel;

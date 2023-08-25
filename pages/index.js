@@ -3,6 +3,8 @@ import Card from "@/components/Card/index.js";
 import Pagination from "@/components/Pagination/index.js";
 import PreferenceTags from "@/components/PreferenceTags/index.js";
 import { useState } from "react";
+import useSWR from "swr";
+const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 export default function CardDeck({
   selectedLocations,
@@ -12,7 +14,10 @@ export default function CardDeck({
   setSelectedLocations,
   setSelectedWeathers,
 }) {
-  console.log(JSON.stringify(cards));
+  const { data, error, isLoading, mutate } = useSWR(`/api/getAll`, fetcher);
+
+  console.log(data);
+
   const [currentIndex, setCurrentIndex] = useState(0);
   const filteredCards = cards.filter((card) => {
     let isAGoodGameSuggestion = true;
@@ -57,7 +62,8 @@ export default function CardDeck({
   if (filteredCards.length <= 0) {
     return <p> Oh no, no cards that fit your preferences. </p>;
   }
-
+  if (error) return <div>failed to load</div>;
+  if (isLoading) return <div>loading...</div>;
   return (
     <>
       <PreferenceTags
