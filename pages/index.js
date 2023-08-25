@@ -12,6 +12,7 @@ export default function CardDeck({
   setSelectedLocations,
   setSelectedWeathers,
 }) {
+  console.log(JSON.stringify(cards));
   const [currentIndex, setCurrentIndex] = useState(0);
   const filteredCards = cards.filter((card) => {
     let isAGoodGameSuggestion = true;
