@@ -16,10 +16,8 @@ export default function CardDeck({
 }) {
   const { data, error, isLoading, mutate } = useSWR(`/api/getAll`, fetcher);
 
-  console.log(data);
-
   const [currentIndex, setCurrentIndex] = useState(0);
-  const filteredCards = cards.filter((card) => {
+  const filteredCards = (data?.cards || []).filter((card) => {
     let isAGoodGameSuggestion = true;
 
     if (selectedLocations.length > 0) {
@@ -59,11 +57,11 @@ export default function CardDeck({
       setCurrentIndex(currentIndex - 1);
     }
   }
+  if (error) return <div>failed to load</div>;
+  if (isLoading) return <div>loading...</div>;
   if (filteredCards.length <= 0) {
     return <p> Oh no, no cards that fit your preferences. </p>;
   }
-  if (error) return <div>failed to load</div>;
-  if (isLoading) return <div>loading...</div>;
   return (
     <>
       <PreferenceTags
