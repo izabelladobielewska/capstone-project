@@ -1,5 +1,7 @@
 import PreferencesButton from "@/components/PreferencesButton";
 import { useRouter } from "next/router";
+import styled from "styled-components";
+
 export default function PreferencesForm({
   selectedLocations,
   setSelectedLocations,
@@ -37,7 +39,7 @@ export default function PreferencesForm({
   return (
     <>
       <>
-        <p>I am bored, and...</p>
+        <StyledText>I am bored, and...</StyledText>
         {locations.map((location, i) => (
           <PreferencesButton
             key={location.value}
@@ -46,7 +48,7 @@ export default function PreferencesForm({
             setPreferences={setSelectedLocations}
           />
         ))}
-        <p>The weather is</p>
+        <StyledText>The weather is</StyledText>
         {weathers.map((weather, i) => (
           <PreferencesButton
             key={weather.value}
@@ -55,7 +57,7 @@ export default function PreferencesForm({
             setPreferences={setSelectedWeathers}
           />
         ))}
-        <p>My company is </p>
+        <StyledText>My company is </StyledText>
         {companions.map((company, i) => (
           <PreferencesButton
             key={company.value}
@@ -71,3 +73,10 @@ export default function PreferencesForm({
     </>
   );
 }
+
+const StyledText = styled.p`
+  font-size: 1rem;
+  padding-top: 1rem;
+  font-weight: normal;
+  font-color: "#3f0469";
+`;
