@@ -11,10 +11,19 @@ export default function Card({ card, mutateCards }) {
   }, [card.id]);
 
   async function handleRating(score) {
-    const url = `/api/submitRating?id=${card.id}&rating=${score}`;
+    const url = "/api/submitRating";
     try {
       setRating(score);
-      await fetch(url);
+      await fetch(url, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          id: card.id,
+          rating: score,
+        }),
+      });
       mutateCards();
     } catch (e) {
       console.error(e);

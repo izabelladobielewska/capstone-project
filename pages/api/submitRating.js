@@ -1,8 +1,10 @@
 import clientPromise from "@/utils/connectMongo";
 
 export default async function handler(req, res) {
+  if (req.method !== "PATCH")
+    return res.status(405).json({ error: new Error("Invalid request method") });
   try {
-    const { id, rating } = req.query;
+    const { id, rating } = req.body;
     const client = await clientPromise;
     const collection = client.db("endstagram").collection("cards");
     const card = await collection.findOne({ id: Number(id) });
