@@ -54,7 +54,7 @@ const Article = styled.article`
   border-radius: 10px;
   padding: 20px;
   overflow-y: auto;
-  height: 70vh;
+  height: 60vh;
   background-color: white;
 `;
 
