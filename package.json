@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@fortawesome/free-regular-svg-icons": "^6.4.2",
+    "@fortawesome/free-solid-svg-icons": "^6.4.2",
+    "@fortawesome/react-fontawesome": "^0.2.0",
     "eslint": "8.44.0",
     "eslint-config-next": "13.4.8",
     "mongodb": "^5.8.1",

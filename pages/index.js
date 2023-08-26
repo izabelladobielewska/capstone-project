@@ -4,6 +4,7 @@ import Pagination from "@/components/Pagination/index.js";
 import PreferenceTags from "@/components/PreferenceTags/index.js";
 import { useState } from "react";
 import useSWR from "swr";
+
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 export default function CardDeck({
@@ -14,7 +15,7 @@ export default function CardDeck({
   setSelectedLocations,
   setSelectedWeathers,
 }) {
-  const { data, error, isLoading, mutate } = useSWR(`/api/getAll`, fetcher);
+  const { data, error, isLoading } = useSWR("/api/getAll", fetcher);
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const filteredCards = (data?.cards || []).filter((card) => {
@@ -57,7 +58,7 @@ export default function CardDeck({
       setCurrentIndex(currentIndex - 1);
     }
   }
-  if (error) return <div>failed to load</div>;
+  if (error) return <div>failed to load game cards...</div>;
   if (isLoading) return <div>loading...</div>;
   if (filteredCards.length <= 0) {
     return <p> Oh no, no cards that fit your preferences. </p>;

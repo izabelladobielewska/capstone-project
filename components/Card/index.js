@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Rating from "../Rating";
 
 export default function Card({ card }) {
   return (
@@ -11,6 +12,7 @@ export default function Card({ card }) {
         <StyledText>{card.howToPlay}</StyledText>
         <h3>Rules:</h3>
         <StyledText>{card.rules}</StyledText>
+        <Rating />
       </div>
     </Article>
   );
