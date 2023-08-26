@@ -4,12 +4,19 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import { styled } from "styled-components";
 
-export default function Rating({}) {
+export default function Rating({ cardId }) {
   const ratings = [1, 2, 3, 4, 5];
   const [rating, setRating] = useState(0);
 
-  function handleRating(score) {
-    setRating(score);
+  async function handleRating(score) {
+    const url = `/api/submitRating?id=${cardId}&rating=${score}`;
+    try {
+      const res = await fetch(url);
+      console.log(await res.json());
+      setRating(score);
+    } catch (e) {
+      console.error(e);
+    }
   }
 
   return (

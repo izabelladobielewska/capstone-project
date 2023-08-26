@@ -1,18 +1,22 @@
 import styled from "styled-components";
 import Rating from "../Rating";
+import AverageRating from "../AverageRating";
 
 export default function Card({ card }) {
   return (
     <Article>
       <div>
-        <h2>{card.name}</h2>
+        <div>
+          <h2>{card.name}</h2>
+          <AverageRating ratings={card.ratings} />
+        </div>
         <h3>Prepare:</h3>
         <StyledText>{card.prepare}</StyledText>
         <h3>How to Play:</h3>
         <StyledText>{card.howToPlay}</StyledText>
         <h3>Rules:</h3>
         <StyledText>{card.rules}</StyledText>
-        <Rating />
+        <Rating cardId={card.id} />
       </div>
     </Article>
   );
