@@ -1,11 +1,19 @@
 import styled from "styled-components";
 import Rating from "../Rating";
 import AverageRating from "../AverageRating";
+import { useState, useEffect } from "react";
 
 export default function Card({ card, mutateCards }) {
+  const [rating, setRating] = useState(0);
+
+  useEffect(() => {
+    setRating(0);
+  }, [card.id]);
+
   async function handleRating(score) {
     const url = `/api/submitRating?id=${card.id}&rating=${score}`;
     try {
+      setRating(score);
       await fetch(url);
       mutateCards();
     } catch (e) {
@@ -26,7 +34,7 @@ export default function Card({ card, mutateCards }) {
         <StyledText>{card.howToPlay}</StyledText>
         <h3>Rules:</h3>
         <StyledText>{card.rules}</StyledText>
-        <Rating handleRating={handleRating} />
+        <Rating handleRating={handleRating} rating={rating} />
       </div>
     </Article>
   );

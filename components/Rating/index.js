@@ -1,16 +1,13 @@
 import { faStar as starUnselected } from "@fortawesome/free-regular-svg-icons";
 import { faStar as starSelected } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState } from "react";
 import { styled } from "styled-components";
 
-export default function Rating({ handleRating }) {
+export default function Rating({ handleRating, rating }) {
   const ratings = [1, 2, 3, 4, 5];
-  const [rating, setRating] = useState(0);
 
   async function onClickRating(score) {
     handleRating(score);
-    setRating(score);
   }
 
   return (
