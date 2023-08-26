@@ -2,7 +2,17 @@ import styled from "styled-components";
 import Rating from "../Rating";
 import AverageRating from "../AverageRating";
 
-export default function Card({ card }) {
+export default function Card({ card, mutateCards }) {
+  async function handleRating(score) {
+    const url = `/api/submitRating?id=${card.id}&rating=${score}`;
+    try {
+      await fetch(url);
+      mutateCards();
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
   return (
     <Article>
       <div>
@@ -16,7 +26,7 @@ export default function Card({ card }) {
         <StyledText>{card.howToPlay}</StyledText>
         <h3>Rules:</h3>
         <StyledText>{card.rules}</StyledText>
-        <Rating cardId={card.id} />
+        <Rating handleRating={handleRating} />
       </div>
     </Article>
   );

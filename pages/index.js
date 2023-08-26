@@ -15,7 +15,7 @@ export default function CardDeck({
   setSelectedLocations,
   setSelectedWeathers,
 }) {
-  const { data, error, isLoading } = useSWR("/api/getAll", fetcher);
+  const { data, error, isLoading, mutate } = useSWR("/api/getAll", fetcher);
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const filteredCards = (data?.cards || []).filter((card) => {
@@ -73,7 +73,7 @@ export default function CardDeck({
         selectedWeathers={selectedWeathers}
         setSelectedWeathers={setSelectedWeathers}
       />
-      <Card card={filteredCards[currentIndex]} />
+      <Card card={filteredCards[currentIndex]} mutateCards={mutate} />
       <Pagination
         handlePrev={handlePrev}
         handleNext={handleNext}

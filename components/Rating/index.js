@@ -4,19 +4,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import { styled } from "styled-components";
 
-export default function Rating({ cardId }) {
+export default function Rating({ handleRating }) {
   const ratings = [1, 2, 3, 4, 5];
   const [rating, setRating] = useState(0);
 
-  async function handleRating(score) {
-    const url = `/api/submitRating?id=${cardId}&rating=${score}`;
-    try {
-      const res = await fetch(url);
-      console.log(await res.json());
-      setRating(score);
-    } catch (e) {
-      console.error(e);
-    }
+  async function onClickRating(score) {
+    handleRating(score);
+    setRating(score);
   }
 
   return (
@@ -25,7 +19,7 @@ export default function Rating({ cardId }) {
         <RatingButton
           key={score}
           icon={rating < score ? starUnselected : starSelected}
-          onClick={() => handleRating(score)}
+          onClick={() => onClickRating(score)}
         />
       ))}
     </RatingWrapper>
