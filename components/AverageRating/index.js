@@ -10,7 +10,10 @@ export default function AverageRating({ ratings }) {
     <Rating>
       <FontAwesomeIcon icon={faStar} />
       {avgRating > 0 ? (
-        <span> {avgRating.toFixed(1)}</span>
+        <>
+          <span> {avgRating.toFixed(1)} </span>
+          <span> ({ratings.length}) </span>
+        </>
       ) : (
         <span> &#8212;</span>
       )}
