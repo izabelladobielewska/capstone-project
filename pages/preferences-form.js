@@ -68,7 +68,7 @@ export default function PreferencesForm({
         ))}
       </>
       <section>
-        <button onClick={submitPreferences}>Show matching games!</button>
+        <Button onClick={submitPreferences}>Show matching games!</Button>
       </section>
     </>
   );
@@ -78,4 +78,11 @@ const StyledText = styled.p`
   font-size: 1rem;
   padding-top: 1rem;
   font-weight: normal;
+`;
+
+const Button = styled.button`
+  padding: 0.5rem 1rem;
+  background-color: "white";
+  border-radius: 5px;
+  width: 100%;
 `;
