@@ -7,10 +7,10 @@ export default function Header() {
   const pathName = usePathname();
   return (
     <Nav>
-      <BrandLink href="/" pathName={pathName}>
+      <BrandLink href="/" pathname={pathName}>
         <h1>Endstagram</h1>
       </BrandLink>
-      <PreferenceLink href="/preferences-form" pathName={pathName}>
+      <PreferenceLink href="/preferences-form" pathname={pathName}>
         <PreferencesIcon
           alt="link to preferences page"
           color="#6741d9"
@@ -59,7 +59,7 @@ const PreferenceLink = styled(Link)`
 
   svg {
     opacity: ${(props) =>
-      props.pathName === "/preferences-form" ? "0.5" : "1"};
+      props.pathname === "/preferences-form" ? "0.5" : "1"};
     transition: 1s;
   }
 `;
