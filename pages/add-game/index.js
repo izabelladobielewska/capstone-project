@@ -15,14 +15,12 @@ export default function AddGame() {
   const [selectedWeathers, setSelectedWeathers] = useState([]);
   const [selectedLocations, setSelectedLocations] = useState([]);
 
-  function handleCheckboxChange(event) {
+  function handleCheckboxChange(event, state, setter) {
     const { value, checked } = event.target;
     if (checked) {
-      setSelectedCompany([...selectedCompany, value]);
+      setter([...state, value]);
     } else {
-      setSelectedCompany(
-        selectedCompany.filter((companion) => companion !== value)
-      );
+      setter(state.filter((item) => item !== value));
     }
   }
 
@@ -127,7 +125,9 @@ export default function AddGame() {
               type="checkbox"
               value={companion.value}
               checked={selectedCompany.includes(companion.value)}
-              onChange={handleCheckboxChange}
+              onChange={(event) =>
+                handleCheckboxChange(event, selectedCompany, setSelectedCompany)
+              }
             />
             {companion.desc}
           </label>
@@ -140,8 +140,14 @@ export default function AddGame() {
             <input
               type="checkbox"
               value={weather.value}
-              checked={selectedCompany.includes(weather.value)}
-              onChange={handleCheckboxChange}
+              checked={selectedWeathers.includes(weather.value)}
+              onChange={(event) =>
+                handleCheckboxChange(
+                  event,
+                  selectedWeathers,
+                  setSelectedWeathers
+                )
+              }
             />
             {weather.desc}
           </label>
@@ -154,8 +160,14 @@ export default function AddGame() {
             <input
               type="checkbox"
               value={location.value}
-              checked={selectedCompany.includes(location.value)}
-              onChange={handleCheckboxChange}
+              checked={selectedLocations.includes(location.value)}
+              onChange={(event) =>
+                handleCheckboxChange(
+                  event,
+                  selectedLocations,
+                  setSelectedLocations
+                )
+              }
             />
             {location.desc}
           </label>
