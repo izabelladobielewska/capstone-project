@@ -7,13 +7,13 @@ export default async function handler(req, res) {
     const { id, rating } = req.body;
     const client = await clientPromise;
     const collection = client.db("endstagram").collection("cards");
-    const card = await collection.findOne({ id: Number(id) });
+    const card = await collection.findOne({ id: id });
 
     if (card) {
       const ratings = card.ratings || [];
 
       await collection.updateOne(
-        { id: Number(id) },
+        { id: id },
         { $set: { ratings: [...ratings, Number(rating)] } }
       );
 
