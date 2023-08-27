@@ -79,7 +79,7 @@ export default function AddGame() {
       <label htmlFor="name">
         <h3>What is the name of your game?:</h3>
       </label>
-      <input
+      <TextInput
         type="text"
         id="name"
         name="name"
@@ -167,6 +167,9 @@ export default function AddGame() {
   );
 }
 
+const TextInput = styled.input`
+  width: 100%;
+`;
 const GameInfoTextArea = styled.textarea`
   width: 100%;
   height: 80px;
