@@ -2,20 +2,38 @@ import Link from "next/link";
 import styled from "styled-components";
 import { PreferencesIcon } from "@/public/assets/images/preferences-icon";
 import { usePathname } from "next/navigation";
+import { LikesIcon } from "@/public/assets/images/likes-icon";
+import { AddIcon } from "@/public/assets/images/add-icon";
 
 export default function Header() {
   const pathName = usePathname();
   return (
     <Nav>
+      <AddLink href="/add-game" pathname={pathName}>
+        <AddIcon
+          alt="add a new game"
+          color="black"
+          width="1.7rem"
+          height="1.rem"
+        />
+      </AddLink>
       <BrandLink href="/" pathname={pathName}>
         <h1>Endstagram</h1>
       </BrandLink>
+      <LikesLink href="/my-likes" pathname={pathName}>
+        <LikesIcon
+          alt="link to my likes page"
+          color="black"
+          width="1.7rem"
+          height="1.rem"
+        />
+      </LikesLink>
       <PreferenceLink href="/preferences-form" pathname={pathName}>
         <PreferencesIcon
           alt="link to preferences page"
-          color="#6741d9"
-          width="2rem"
-          height="2rem"
+          color="black"
+          width="1.7rem"
+          height="1.7rem"
         />
       </PreferenceLink>
     </Nav>
@@ -24,8 +42,7 @@ export default function Header() {
 
 const Nav = styled.header`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-  gap: 1rem;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   justify-items: center;
   align-items: start;
   background-color: #f3f0ff;
@@ -36,21 +53,37 @@ const Nav = styled.header`
   height: 4rem;
 `;
 const BrandLink = styled(Link)`
-  grid-column: 3 / span 2;
+  grid-column: 4 / span 2;
   place-self: center;
-  color: #3F0469
+  // color: #3f0469;
   background-color: transparent;
   border: none;
-  margin: 0.5em 1em 0.5em 0;
+  margin: 0.5em 0em 0.5em 0;
   padding: 0;
   text-decoration: none;
   &:active {
-    opacity: 0.5
+    opacity: 0.5;
   }
-  transition: 1s
+  transition: 1s;
+`;
+const AddLink = styled(Link)`
+  grid-column: 1;
+  place-self: center;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  text-decoration: none;
+`;
+const LikesLink = styled(Link)`
+  grid-column: 7;
+  place-self: center;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  text-decoration: none;
 `;
 const PreferenceLink = styled(Link)`
-  grid-column: 6;
+  grid-column: 8;
   place-self: center;
   background-color: transparent;
   border: none;

@@ -3,9 +3,9 @@ import styled from "styled-components";
 export default function Pagination({ handlePrev, handleNext, deckSize }) {
   return (
     <Section>
-      <Button onClick={handlePrev}>Prev</Button>
+      <Button onClick={handlePrev}>&#8249; Prev</Button>
       <span> {deckSize} matching cards </span>
-      <Button onClick={handleNext}>Next</Button>
+      <Button onClick={handleNext}>Next &#8250;</Button>
     </Section>
   );
 }

@@ -28,5 +28,5 @@ export default function App({ Component, pageProps }) {
 
 const Main = styled.main`
   margin: 1rem;
-  padding-top: 4rem;
+  padding-top: 3rem;
 `;
