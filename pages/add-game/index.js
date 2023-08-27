@@ -56,7 +56,6 @@ export default function AddGame() {
         location: selectedLocations,
         weather: selectedWeathers,
       };
-
       try {
         await fetch("/api/addGame/", {
           method: "POST",
