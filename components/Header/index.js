@@ -14,7 +14,7 @@ export default function Header() {
           alt="add a new game"
           color="black"
           width="1.7rem"
-          height="1.rem"
+          height="1.7rem"
         />
       </AddLink>
       <BrandLink href="/" pathname={pathName}>

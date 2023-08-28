@@ -33,9 +33,7 @@ export default function AddGame() {
     event.preventDefault();
 
     if (selectedCompany.length === 0) {
-      return alert(
-        "You have to select at least one option for company to play!"
-      );
+      return alert("You have to select at least one of the company options!");
     }
     if (selectedLocations.length === 0) {
       return alert(
