@@ -7,17 +7,17 @@ export const locations = [
   {
     text: "I'm in a forest",
     value: "forest",
-    desc: "Can be played in the forest",
+    desc: "Can be played in a forest",
   },
   {
     text: "I'm in a city",
     value: "city",
-    desc: "Can be played in the concrete jungle",
+    desc: "Can be played in a concrete jungle",
   },
   {
     text: "I'm in the mountains",
     value: "mountains",
-    desc: "Can be played on the Eiger Northface",
+    desc: "Steep slopes and sharp rocks are okay",
   },
 ];
 
@@ -25,19 +25,19 @@ export const weathers = [
   {
     text: "sunny, warm, not too bad",
     value: "sunny",
-    desc: "It has to be cloudless and dry",
+    desc: "It has to be warm and sunny",
   },
   {
     text: "it's pouring",
     value: "rainy",
-    desc: "It can pour in cats and dogs",
+    desc: "Typical Hamburg i.e. rain",
   },
   {
     text: "wuthering heights",
     value: "windy",
-    desc: "It's good when there is a steady wind",
+    desc: "Wind is not an obstacle",
   },
-  { text: "cloudy", value: "cloudy", desc: "overcast is fine" },
+  { text: "cloudy", value: "cloudy", desc: "Overcast is fine" },
 ];
 
 export const companions = [

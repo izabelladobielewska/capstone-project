@@ -25,7 +25,7 @@ export default function Header() {
           alt="link to my likes page"
           color="black"
           width="1.7rem"
-          height="1.rem"
+          height="1.7rem"
         />
       </LikesLink>
       <PreferenceLink href="/preferences-form" pathname={pathName}>
