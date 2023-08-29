@@ -56,3 +56,15 @@ export const StyledCheckbox = styled.input.attrs({ type: "checkbox" })`
     color: white;
   }
 `;
+export const SubmitButton = styled.button`
+  margin-top: 1rem;
+  letter-spacing: 0.05em;
+  border-radius: 3rem;
+  border: none;
+  width: 100%;
+  padding: 0.8rem 1rem;
+  background-color: #8447ff;
+  color: white;
+  font-size: 1rem;
+  font-weight: light;
+`;

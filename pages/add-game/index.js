@@ -5,6 +5,7 @@ import { locations, companions, weathers } from "@/public/assets/options";
 import styled from "styled-components";
 import { StyledCheckbox } from "@/styles";
 import { StyledCheckboxLabel } from "@/styles";
+import { SubmitButton } from "@/styles";
 export default function AddGame() {
   const router = useRouter();
   const [formData, setFormData] = useState({
@@ -224,15 +225,4 @@ const GameInfoTextArea = styled.textarea`
     border-color: #8447ff;
     background-color: rgba(255,255,255,.3);
     box-shadow: 0 0 10px rgba(0, 123, 255);
-`;
-const SubmitButton = styled.button`
-  margin-top: 1rem;
-  letter-spacing: 0.05em;
-  border-radius: 3rem;
-  border: none;
-  width: 100%;
-  padding: 0.8rem 1rem;
-  background-color: #8447ff;
-  color: white;
-  font-size: 1rem;
 `;

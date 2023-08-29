@@ -2,7 +2,7 @@ import PreferencesButton from "@/components/PreferencesButton";
 import { useRouter } from "next/router";
 import styled from "styled-components";
 import { locations, companions, weathers } from "@/public/assets/options";
-
+import { SubmitButton } from "@/styles";
 export default function PreferencesForm({
   selectedLocations,
   setSelectedLocations,
@@ -18,8 +18,9 @@ export default function PreferencesForm({
   }
 
   return (
-    <>
+    <Main>
       <>
+        <StyledHeadline>Set Your Preferences</StyledHeadline>
         <StyledText>I am bored, and...</StyledText>
         {locations.map((location, i) => (
           <PreferencesButton
@@ -49,9 +50,11 @@ export default function PreferencesForm({
         ))}
       </>
       <section>
-        <Button onClick={submitPreferences}>Show matching games!</Button>
+        <SubmitButton onClick={submitPreferences}>
+          Show matching games!
+        </SubmitButton>
       </section>
-    </>
+    </Main>
   );
 }
 
@@ -60,10 +63,10 @@ const StyledText = styled.p`
   padding-top: 1rem;
   font-weight: normal;
 `;
-
-const Button = styled.button`
-  padding: 0.5rem 1rem;
-  background-color: "white";
-  border-radius: 5px;
-  width: 100%;
+const Main = styled.main`
+  padding: 1rem;
+`;
+const StyledHeadline = styled.p`
+  font-size: 1.2rem;
+  font-weight: bolder;
 `;

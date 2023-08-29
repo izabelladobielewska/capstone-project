@@ -20,14 +20,14 @@ export default function Header() {
       <BrandLink href="/" pathname={pathName}>
         <h1>Endstagram</h1>
       </BrandLink>
-      <LikesLink href="/my-likes" pathname={pathName}>
+      {/* <LikesLink href="/my-likes" pathname={pathName}>
         <LikesIcon
           alt="link to my likes page"
           color="black"
           width="1.7rem"
           height="1.7rem"
         />
-      </LikesLink>
+      </LikesLink> */}
       <PreferenceLink href="/preferences-form" pathname={pathName}>
         <PreferencesIcon
           alt="link to preferences page"
@@ -74,14 +74,14 @@ const AddLink = styled(Link)`
   padding: 0;
   text-decoration: none;
 `;
-const LikesLink = styled(Link)`
-  grid-column: 7;
-  place-self: center;
-  background-color: transparent;
-  border: none;
-  padding: 0;
-  text-decoration: none;
-`;
+// const LikesLink = styled(Link)`
+//   grid-column: 7;
+//   place-self: center;
+//   background-color: transparent;
+//   border: none;
+//   padding: 0;
+//   text-decoration: none;
+// `;
 const PreferenceLink = styled(Link)`
   grid-column: 8;
   place-self: center;
@@ -89,10 +89,10 @@ const PreferenceLink = styled(Link)`
   border: none;
   padding: 0;
   text-decoration: none;
-
-  svg {
-    opacity: ${(props) =>
-      props.pathname === "/preferences-form" ? "0.5" : "1"};
-    transition: 1s;
-  }
 `;
+// for later
+// svg {
+//   opacity: ${(props) =>
+//     props.pathname === "/preferences-form" ? "0.5" : "1"};
+//   transition: 1s;
+// }

@@ -9,7 +9,7 @@ export default function PreferenceTags({
   setSelectedWeathers,
 }) {
   return (
-    <>
+    <Main>
       <div>
         <h3>Congrats!</h3>
         <StyledText>
@@ -67,9 +67,12 @@ export default function PreferenceTags({
           </Tag>
         ))}
       </Section>
-    </>
+    </Main>
   );
 }
+const Main = styled.main`
+  padding: 0rem 1rem;
+`;
 const Tag = styled.div`
   display: inline-block;
   padding: 7px 12px 9px;
@@ -85,7 +88,7 @@ const Tag = styled.div`
 const Section = styled.section`
   display: flex;
   flex-wrap: wrap;
-  padding: 0.7rem 0;
+  padding: 0.7rem 0rem;
   justify-content: flex-end;
   gap: 0.8rem;
 `;
