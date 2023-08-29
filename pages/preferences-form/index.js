@@ -51,7 +51,7 @@ export default function PreferencesForm({
       </>
       <section>
         <SubmitButton onClick={submitPreferences}>
-          Show matching games!
+          Show matching games &#8594;
         </SubmitButton>
       </section>
     </Main>
