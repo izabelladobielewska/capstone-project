@@ -1,7 +1,8 @@
 import PreferencesButton from "@/components/PreferencesButton";
 import { useRouter } from "next/router";
 import styled from "styled-components";
-
+import { locations, companions, weathers } from "@/public/assets/options";
+import { SubmitButton } from "@/styles";
 export default function PreferencesForm({
   selectedLocations,
   setSelectedLocations,
@@ -11,34 +12,15 @@ export default function PreferencesForm({
   setSelectedCompanions,
 }) {
   const router = useRouter();
-  const locations = [
-    { text: "I'm living my best life on a boat", value: "boat" },
-    { text: "I'm in a forest", value: "forest" },
-    { text: "I'm in a city", value: "city" },
-    { text: "I'm in the mountains", value: "mountains" },
-  ];
-
-  const weathers = [
-    { text: "sunny, warm, not too bad", value: "sunny" },
-    { text: "rainy", value: "rainy" },
-    { text: "wuthering heights", value: "windy" },
-    { text: "cloudy", value: "cloudy" },
-  ];
-
-  const companions = [
-    { text: "just me", value: "alone" },
-    { text: "1 person + me", value: "me + 1" },
-    { text: "dog", value: "dog" },
-    { text: "more people", value: "more people" },
-  ];
 
   function submitPreferences() {
     router.push("/");
   }
 
   return (
-    <>
+    <Main>
       <>
+        <StyledHeadline>Set Your Preferences</StyledHeadline>
         <StyledText>I am bored, and...</StyledText>
         {locations.map((location, i) => (
           <PreferencesButton
@@ -68,9 +50,11 @@ export default function PreferencesForm({
         ))}
       </>
       <section>
-        <Button onClick={submitPreferences}>Show matching games!</Button>
+        <SubmitButton onClick={submitPreferences}>
+          Show matching games!
+        </SubmitButton>
       </section>
-    </>
+    </Main>
   );
 }
 
@@ -79,10 +63,10 @@ const StyledText = styled.p`
   padding-top: 1rem;
   font-weight: normal;
 `;
-
-const Button = styled.button`
-  padding: 0.5rem 1rem;
-  background-color: "white";
-  border-radius: 5px;
-  width: 100%;
+const Main = styled.main`
+  padding: 1rem;
+`;
+const StyledHeadline = styled.p`
+  font-size: 1.2rem;
+  font-weight: bolder;
 `;

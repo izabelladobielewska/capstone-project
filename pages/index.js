@@ -58,8 +58,8 @@ export default function CardDeck({
       setCurrentIndex(currentIndex - 1);
     }
   }
-  if (error) return <div>failed to load game cards...</div>;
-  if (isLoading) return <div>loading...</div>;
+  if (error) return <div>Oops, failed to load the game cards...</div>;
+  if (isLoading) return <div>...Loading...</div>;
   if (filteredCards.length <= 0) {
     return <p> Oh no, no cards that fit your preferences. </p>;
   }

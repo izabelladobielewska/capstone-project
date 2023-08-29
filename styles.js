@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-
+import styled from "styled-components";
 export default createGlobalStyle`
   *,
   *::before,
@@ -36,4 +36,35 @@ h1{
     padding: 1rem 0 0.5rem 0;
   }
   
+`;
+export const StyledCheckboxLabel = styled.label`
+  line-height: 1.5rem;
+  font-size: 1rem;
+`;
+export const StyledCheckbox = styled.input.attrs({ type: "checkbox" })`
+  appearance: none;
+  vertical-align: text-bottom;
+  width: 1rem;
+  height: 1rem;
+  border: 1px solid #8447ff;
+  border-radius: 4px;
+  margin-right: 0.5rem; /* Space between the checkbox and label */
+  cursor: pointer;
+  &:checked {
+    background-color: #8447ff;
+    border-color: #8447ff; /* Border color when checked */
+    color: white;
+  }
+`;
+export const SubmitButton = styled.button`
+  margin-top: 1rem;
+  letter-spacing: 0.05em;
+  border-radius: 3rem;
+  border: none;
+  width: 100%;
+  padding: 0.8rem 1rem;
+  background-color: #8447ff;
+  color: white;
+  font-size: 1rem;
+  font-weight: light;
 `;

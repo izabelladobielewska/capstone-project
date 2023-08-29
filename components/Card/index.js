@@ -31,24 +31,28 @@ export default function Card({ card, mutateCards }) {
   }
 
   return (
-    <Article>
-      <div>
+    <Main>
+      <Article>
         <div>
-          <h2>{card.name}</h2>
-          <AverageRating ratings={card.ratings} />
+          <div>
+            <h2>{card.name}</h2>
+            <AverageRating ratings={card.ratings} />
+          </div>
+          <h3>Prepare:</h3>
+          <StyledText>{card.prepare}</StyledText>
+          <h3>How to Play:</h3>
+          <StyledText>{card.howToPlay}</StyledText>
+          <h3>Rules:</h3>
+          <StyledText>{card.rules}</StyledText>
+          <Rating handleRating={handleRating} rating={rating} />
         </div>
-        <h3>Prepare:</h3>
-        <StyledText>{card.prepare}</StyledText>
-        <h3>How to Play:</h3>
-        <StyledText>{card.howToPlay}</StyledText>
-        <h3>Rules:</h3>
-        <StyledText>{card.rules}</StyledText>
-        <Rating handleRating={handleRating} rating={rating} />
-      </div>
-    </Article>
+      </Article>
+    </Main>
   );
 }
-
+const Main = styled.main`
+  padding: 0rem 1rem;
+`;
 const Article = styled.article`
   box-shadow: 0px 0px 10px #ccc;
   border-radius: 10px;
