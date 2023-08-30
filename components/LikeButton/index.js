@@ -5,15 +5,17 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function LikeButton({ likedCards, setLikedCards, cardId }) {
   function handleLikeClick() {
+    let newLikedCards;
+
     if (likedCards.includes(cardId)) {
-      setLikedCards(
-        likedCards.filter(
-          (eachCardOnLikeCards) => eachCardOnLikeCards !== cardId
-        )
+      newLikedCards = likedCards.filter(
+        (eachCardOnLikeCards) => eachCardOnLikeCards !== cardId
       );
     } else {
-      setLikedCards([...likedCards, cardId]);
+      newLikedCards = [...likedCards, cardId];
     }
+    setLikedCards(newLikedCards);
+    localStorage.setItem("likedCards", JSON.stringify(newLikedCards));
   }
 
   return (
