@@ -28,19 +28,24 @@ export default createGlobalStyle`
     color: black;
     text-decoration: none;
   }
+  p, span {
+    font-family: SF Pro Text;
+    line-height: 1.3rem;
+    font-size: 0.95rem;
+  }
 h1{
   font-size: 1.5rem;
-  font-family: arial;
+  font-family: Bodoni;
 
 }
 h2 {
-  font-family: arial;
+  font-family: SF Pro Text;
 }
-  h3 {
-    padding: 1rem 0 0.5rem 0;
-    font-family: arial;
-  }
-  
+
+h3 {
+  padding: 1rem 0 0.5rem 0;
+  font-family: SF Pro Text;
+  }  
 `;
 export const StyledCheckboxLabel = styled.label`
   line-height: 1.5rem;

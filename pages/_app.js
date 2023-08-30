@@ -7,6 +7,7 @@ export default function App({ Component, pageProps }) {
   const [selectedLocations, setSelectedLocations] = useState([]);
   const [selectedWeathers, setSelectedWeathers] = useState([]);
   const [selectedCompanions, setSelectedCompanions] = useState([]);
+
   return (
     <>
       <GlobalStyle />
