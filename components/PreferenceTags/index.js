@@ -13,7 +13,7 @@ export default function PreferenceTags({
       <div>
         <h3>Congrats!</h3>
         <StyledText>
-          Turns out you don´t need to look at your phone. Here are some
+          Turns out you don't need to look at your phone. Here are some
           alternative activities for you:
         </StyledText>
       </div>

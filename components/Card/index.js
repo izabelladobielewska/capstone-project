@@ -4,9 +4,8 @@ import AverageRating from "../AverageRating";
 import { useState, useEffect } from "react";
 import LikeButton from "../LikeButton";
 
-export default function Card({ card, mutateCards }) {
+export default function Card({ card, mutateCards, likedCards, setLikedCards }) {
   const [rating, setRating] = useState(0);
-  const [likedCards, setLikedCards] = useState([]);
 
   useEffect(() => {
     setRating(0);
@@ -42,13 +41,12 @@ export default function Card({ card, mutateCards }) {
           <CardName>
             <h2>{card.name}</h2>
           </CardName>
-
           <Likes>
             <LikeButton
               cardId={card.id}
               likedCards={likedCards}
               setLikedCards={setLikedCards}
-              // alt="link to my likes page"
+              alt="link to my likes page"
               // color="black"
               // width="1.7rem"
               // height="1.7rem"

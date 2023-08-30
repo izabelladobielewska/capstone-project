@@ -15,6 +15,7 @@ export default function LikeButton({ likedCards, setLikedCards, cardId }) {
       setLikedCards([...likedCards, cardId]);
     }
   }
+
   return (
     <LikeIcon
       icon={!likedCards.includes(cardId) ? heartUnselected : heartSelected}
