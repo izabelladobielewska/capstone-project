@@ -28,7 +28,7 @@ export default function Header() {
       <BrandLink href="/" pathname={pathName}>
         <h1>Endstagram</h1>
       </BrandLink>
-      <LikesLink onClick={handleShowLikes}>
+      <LikesLink href="/likes">
         <LikesIcon
           alt="show my likes"
           color="black"
@@ -82,7 +82,7 @@ const AddLink = styled(Link)`
   padding: 0;
   text-decoration: none;
 `;
-const LikesLink = styled.div`
+const LikesLink = styled(Link)`
   grid-column: 7;
   place-self: center;
   background-color: transparent;

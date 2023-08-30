@@ -1,12 +1,7 @@
-import cards from "../public/assets/cards.js";
 import Card from "@/components/Card/index.js";
 import Pagination from "@/components/Pagination/index.js";
 import PreferenceTags from "@/components/PreferenceTags/index.js";
-import { usePathname } from "next/navigation.js";
-import { useEffect, useState } from "react";
-import useSWR from "swr";
-
-const fetcher = (...args) => fetch(...args).then((res) => res.json());
+import { useState } from "react";
 
 export default function CardDeck({
   selectedLocations,
@@ -15,51 +10,37 @@ export default function CardDeck({
   setSelectedCompanions,
   setSelectedLocations,
   setSelectedWeathers,
+  likedCards,
+  setLikedCards,
+  db,
 }) {
-  const pathName = usePathname();
-  const { data, error, isLoading, mutate } = useSWR("/api/getAll", fetcher);
-
-  const [likedCards, setLikedCards] = useState([]);
+  const { data, error, isLoading, mutate } = db;
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const [filteredCards, setFilteredCards] = useState(filterCards());
+  const filteredCards = (data?.cards || []).filter((card) => {
+    let isAGoodGameSuggestion = true;
 
-  useEffect(() => {
-    setCurrentIndex(0);
-    setFilteredCards(filterCards());
-  }, [pathName]);
+    if (selectedLocations.length > 0) {
+      isAGoodGameSuggestion = card.location.some((locationICanPlayThisGameIn) =>
+        selectedLocations.includes(locationICanPlayThisGameIn)
+      );
+      if (!isAGoodGameSuggestion) return false;
+    }
+    if (selectedWeathers.length > 0) {
+      isAGoodGameSuggestion = card.weather.some((weatherICanPlayThisGameIn) =>
+        selectedWeathers.includes(weatherICanPlayThisGameIn)
+      );
+      if (!isAGoodGameSuggestion) return false;
+    }
+    if (selectedCompanions.length > 0) {
+      isAGoodGameSuggestion = card.company.some((companyICanPlayThisGameWith) =>
+        selectedCompanions.includes(companyICanPlayThisGameWith)
+      );
+      if (!isAGoodGameSuggestion) return false;
+    }
 
-  function filterCards() {
-    return (data?.cards || []).filter((card) => {
-      if (pathName === "/likes") {
-        return likedCards.includes(card.id);
-      }
-      let isAGoodGameSuggestion = true;
-
-      if (selectedLocations.length > 0) {
-        isAGoodGameSuggestion = card.location.some(
-          (locationICanPlayThisGameIn) =>
-            selectedLocations.includes(locationICanPlayThisGameIn)
-        );
-        if (!isAGoodGameSuggestion) return false;
-      }
-      if (selectedWeathers.length > 0) {
-        isAGoodGameSuggestion = card.weather.some((weatherICanPlayThisGameIn) =>
-          selectedWeathers.includes(weatherICanPlayThisGameIn)
-        );
-        if (!isAGoodGameSuggestion) return false;
-      }
-      if (selectedCompanions.length > 0) {
-        isAGoodGameSuggestion = card.company.some(
-          (companyICanPlayThisGameWith) =>
-            selectedCompanions.includes(companyICanPlayThisGameWith)
-        );
-        if (!isAGoodGameSuggestion) return false;
-      }
-
-      return isAGoodGameSuggestion;
-    });
-  }
+    return isAGoodGameSuggestion;
+  });
 
   /*shuffle will be added here*/
   function handleNext() {
@@ -93,9 +74,9 @@ export default function CardDeck({
       />
       <Card
         card={filteredCards[currentIndex]}
+        mutateCards={mutate}
         likedCards={likedCards}
         setLikedCards={setLikedCards}
-        mutateCards={mutate}
       />
       <Pagination
         handlePrev={handlePrev}
