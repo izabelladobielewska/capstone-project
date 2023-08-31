@@ -1,6 +1,7 @@
 import Card from "@/components/Card/index.js";
 import Pagination from "@/components/Pagination/index.js";
 import { useState } from "react";
+import styled from "styled-components";
 
 export default function LikedCardsDeck({ likedCards, setLikedCards, db }) {
   const { data, error, isLoading, mutate } = db;
@@ -31,11 +32,11 @@ export default function LikedCardsDeck({ likedCards, setLikedCards, db }) {
     return <p> Oh no, no cards that fit your preferences. </p>;
   }
   return (
-    <Main>
-      <div>
+    <>
+      <Head>
         <h3>Your Likes</h3>
-        <StyledText>Here are your favorite games:</StyledText>
-      </div>
+        <StyledText>Here you can browse your favorite games 👇</StyledText>
+      </Head>
       <Card
         card={filteredCards[currentIndex]}
         mutateCards={mutate}
@@ -47,18 +48,11 @@ export default function LikedCardsDeck({ likedCards, setLikedCards, db }) {
         handleNext={handleNext}
         deckSize={filteredCards.length}
       />
-    </Main>
+    </>
   );
 }
-const Main = styled.main`
-  padding: 0rem 1rem;
-`;
-const Section = styled.section`
-  display: flex;
-  flex-wrap: wrap;
-  padding: 0.7rem 0rem;
-  justify-content: flex-end;
-  gap: 0.8rem;
+const Head = styled.main`
+  padding: 0rem 1rem 1rem 1rem;
 `;
 const StyledText = styled.p`
   margin: 0px;
