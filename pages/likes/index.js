@@ -31,8 +31,11 @@ export default function LikedCardsDeck({ likedCards, setLikedCards, db }) {
     return <p> Oh no, no cards that fit your preferences. </p>;
   }
   return (
-    <>
-      <p>Your liked cards</p>
+    <Main>
+      <div>
+        <h3>Your Likes</h3>
+        <StyledText>Here are your favorite games:</StyledText>
+      </div>
       <Card
         card={filteredCards[currentIndex]}
         mutateCards={mutate}
@@ -44,6 +47,19 @@ export default function LikedCardsDeck({ likedCards, setLikedCards, db }) {
         handleNext={handleNext}
         deckSize={filteredCards.length}
       />
-    </>
+    </Main>
   );
 }
+const Main = styled.main`
+  padding: 0rem 1rem;
+`;
+const Section = styled.section`
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0.7rem 0rem;
+  justify-content: flex-end;
+  gap: 0.8rem;
+`;
+const StyledText = styled.p`
+  margin: 0px;
+`;
