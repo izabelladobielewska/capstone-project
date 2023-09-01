@@ -44,8 +44,7 @@ const Nav = styled.header`
   background-color: #f3f0ff;
   position: fixed;
   top: 0;
-  left: 0;
-  width: 100%;
+  width: 414px;
   height: 4rem;
 `;
 const BrandLink = styled(Link)`

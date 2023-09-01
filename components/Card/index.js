@@ -5,7 +5,13 @@ import { useState, useEffect } from "react";
 import LikeButton from "../LikeButton";
 import { useRouter } from "next/router";
 import { EditIcon } from "@/public/assets/images/edit-icon";
-export default function Card({ card, mutateCards, likedCards, setLikedCards }) {
+export default function Card({
+  card,
+  mutateCards,
+  likedCards,
+  setLikedCards,
+  myOwnCards,
+}) {
   const router = useRouter();
   const [rating, setRating] = useState(0);
 
@@ -76,15 +82,16 @@ export default function Card({ card, mutateCards, likedCards, setLikedCards }) {
           <RatingBlock>
             <Rating handleRating={handleRating} rating={rating} />
           </RatingBlock>
-          <Edit>
-            <EditIcon
-              onClick={handleEdit}
-              alt="link to edit this card"
-              color="black"
-              width="1.7rem"
-              height="1.7rem"
-            />
-          </Edit>
+          {myOwnCards.includes(card.id) && (
+            <Edit onClick={handleEdit}>
+              <EditIcon
+                alt="link to edit this card"
+                color="black"
+                width="1.7rem"
+                height="1.7rem"
+              />
+            </Edit>
+          )}
         </CardFooter>
       </Article>
     </Main>
@@ -122,7 +129,7 @@ const Article = styled.article`
   box-shadow: 7px 7px 0px #f3c3a8;
   border-radius: 10px;
   overflow-y: auto;
-  height: 66vh;
+  height: 70vh;
   background-color: white;
   border: 0.1rem solid black;
 `;
@@ -139,6 +146,7 @@ const StyledText = styled.p`
 
 const CardFooter = styled.div`
   display: grid;
+  height: 4rem;
   grid-template-columns: auto 60px;
   align-items: center;
 `;

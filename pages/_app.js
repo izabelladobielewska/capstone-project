@@ -12,14 +12,18 @@ export default function App({ Component, pageProps }) {
   const [selectedWeathers, setSelectedWeathers] = useState([]);
   const [selectedCompanions, setSelectedCompanions] = useState([]);
   const [likedCards, setLikedCards] = useState([]);
+  const [myOwnCards, setMyOwnCards] = useState([]);
 
   // code from https://articles.wesionary.team/using-localstorage-with-next-js-a-beginners-guide-7fc4f8bfd9dc
   useEffect(() => {
     if (window?.localStorage) {
       const likedCardsFromStorage =
         JSON.parse(window.localStorage.getItem("likedCards")) || [];
+      const myOwnCardsFromStorage =
+        JSON.parse(window.localStorage.getItem("myOwnCards")) || [];
 
       setLikedCards(likedCardsFromStorage);
+      setMyOwnCards(myOwnCardsFromStorage);
     }
   }, []);
 
@@ -42,6 +46,8 @@ export default function App({ Component, pageProps }) {
           setSelectedCompanions={setSelectedCompanions}
           likedCards={likedCards}
           setLikedCards={setLikedCards}
+          myOwnCards={myOwnCards}
+          setMyOwnCards={setMyOwnCards}
           db={db}
         />
       </Main>

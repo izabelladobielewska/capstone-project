@@ -7,6 +7,7 @@ export default createGlobalStyle`
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    
   }
   :root {
     --base-color: #fff;
@@ -22,8 +23,14 @@ export default createGlobalStyle`
     height: 100%;
     max-width: 414px;
     margin-inline: auto;
-    background-color: var(--base-color)
-  }
+    background: rgb(106, 70, 252);
+    background: radial-gradient(
+      circle,
+      rgba(106, 70, 252, 0.1545211834733894) 0%,
+      rgba(255, 223, 223, 0.19653799019607843) 53%,
+      rgba(255, 255, 255, 0.07328869047619047) 100%
+    );
+    }
   a {
     color: black;
     text-decoration: none;

@@ -12,6 +12,7 @@ export default function Pagination({ handlePrev, handleNext, deckSize }) {
 
 const Section = styled.section`
   display: flex;
+  z-index: 2;
   justify-content: space-between;
   align-items: center;
   margin-top: 10px;
