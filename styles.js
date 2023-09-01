@@ -20,7 +20,7 @@ export default createGlobalStyle`
     margin: 0;
     width: 100%;
     height: 100%;
-    max-width: 375px;
+    max-width: 414px;
     margin-inline: auto;
     background-color: var(--base-color)
   }

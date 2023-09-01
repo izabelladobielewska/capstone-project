@@ -4,7 +4,7 @@ import AverageRating from "../AverageRating";
 import { useState, useEffect } from "react";
 import LikeButton from "../LikeButton";
 import { useRouter } from "next/router";
-
+import { EditIcon } from "@/public/assets/images/edit-icon";
 export default function Card({ card, mutateCards, likedCards, setLikedCards }) {
   const router = useRouter();
   const [rating, setRating] = useState(0);
@@ -61,14 +61,8 @@ export default function Card({ card, mutateCards, likedCards, setLikedCards }) {
               likedCards={likedCards}
               setLikedCards={setLikedCards}
               alt="link to my likes page"
-              // color="black"
-              // width="1.7rem"
-              // height="1.7rem"
             />
           </Likes>
-          <Edit>
-            <button onClick={handleEdit}>Edit</button>
-          </Edit>
         </CardHead>
         <CardBody>
           <h3>Prepare:</h3>
@@ -78,9 +72,20 @@ export default function Card({ card, mutateCards, likedCards, setLikedCards }) {
           <h3>Rules:</h3>
           <StyledText>{card.rules}</StyledText>
         </CardBody>
-        <RatingFooter>
-          <Rating handleRating={handleRating} rating={rating} />
-        </RatingFooter>
+        <CardFooter>
+          <RatingBlock>
+            <Rating handleRating={handleRating} rating={rating} />
+          </RatingBlock>
+          <Edit>
+            <EditIcon
+              onClick={handleEdit}
+              alt="link to edit this card"
+              color="black"
+              width="1.7rem"
+              height="1.7rem"
+            />
+          </Edit>
+        </CardFooter>
       </Article>
     </Main>
   );
@@ -90,11 +95,12 @@ const Main = styled.main`
 `;
 const CardHead = styled.div`
   display: grid;
-  grid-template-columns: 1fr 60% auto;
+  grid-template-columns: auto 60% 60px;
   align-items: center;
   border-bottom: 0.1rem solid black;
 `;
 const RatingDisplay = styled.div`
+  place-self: center;
   padding: 1rem;
 `;
 
@@ -105,13 +111,9 @@ const CardName = styled.div`
   border-right: 0.1rem solid black;
   padding: 1.32rem 1rem;
 `;
+
 const Likes = styled.div`
   grid-column: 3;
-  place-self: center;
-  padding: 1rem;
-`;
-const Edit = styled.div`
-  grid-column: 4;
   place-self: center;
   padding: 1rem;
 `;
@@ -127,12 +129,28 @@ const Article = styled.article`
 
 const CardBody = styled.div`
   padding: 0px 20px 20px 20px;
+  border-bottom: 0.1rem solid black;
 `;
+
 const StyledText = styled.p`
   white-space: pre-wrap;
   color: #210203;
 `;
-const RatingFooter = styled.div`
-  border-top: 0.1rem solid black;
+
+const CardFooter = styled.div`
+  display: grid;
+  grid-template-columns: auto 60px;
+  align-items: center;
+`;
+
+const RatingBlock = styled.div`
+  place-self: center;
   padding: 1rem;
+`;
+
+const Edit = styled.div`
+  grid-column: 2;
+  place-self: center;
+  padding: 1rem;
+  border-left: 0.1rem solid black;
 `;

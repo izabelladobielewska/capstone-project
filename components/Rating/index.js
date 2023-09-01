@@ -24,4 +24,5 @@ export default function Rating({ handleRating, rating }) {
 }
 const RatingButton = styled(FontAwesomeIcon)`
   margin: 0 0.4rem;
+  font-size: 1.2rem;
 `;
