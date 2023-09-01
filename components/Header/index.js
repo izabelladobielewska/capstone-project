@@ -4,16 +4,11 @@ import { PreferencesIcon } from "@/public/assets/images/preferences-icon";
 import { usePathname } from "next/navigation";
 import { LikesIcon } from "@/public/assets/images/likes-icon";
 import { AddIcon } from "@/public/assets/images/add-icon";
-import cards from "@/public/assets/cards";
-import { use } from "react";
 import { useRouter } from "next/router";
 
 export default function Header() {
   const pathName = usePathname();
   const router = useRouter();
-  function handleShowLikes() {
-    router.push("/", "likes");
-  }
 
   return (
     <Nav>
