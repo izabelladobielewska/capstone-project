@@ -6,16 +6,27 @@ import styled from "styled-components";
 import { StyledCheckbox } from "@/styles";
 import { StyledCheckboxLabel } from "@/styles";
 import { SubmitButton } from "@/styles";
-export default function AddGame() {
+export default function AddGame({ db }) {
   const router = useRouter();
+
+  const cardId = router.query.cardId;
+  const cardToEdit = db.data?.cards.find((card) => card.id === cardId);
+
   const [formData, setFormData] = useState({
-    name: "",
-    prepare: "",
-    howToPlay: "",
+    name: cardToEdit?.name || "",
+    prepare: cardToEdit?.prepare || "",
+    howToPlay: cardToEdit?.howToPlay || "",
+    rules: cardToEdit?.rules || "",
   });
-  const [selectedCompany, setSelectedCompany] = useState([]);
-  const [selectedWeathers, setSelectedWeathers] = useState([]);
-  const [selectedLocations, setSelectedLocations] = useState([]);
+  const [selectedCompany, setSelectedCompany] = useState(
+    cardToEdit?.company || []
+  );
+  const [selectedWeathers, setSelectedWeathers] = useState(
+    cardToEdit?.weather || []
+  );
+  const [selectedLocations, setSelectedLocations] = useState(
+    cardToEdit?.location || []
+  );
 
   function handleCheckboxChange(event, state, setter) {
     const { value, checked } = event.target;
@@ -51,7 +62,7 @@ export default function AddGame() {
     if (confirm("Are you happy with your new game?")) {
       const newGame = {
         ...formData,
-        id: uid(),
+        id: cardId || uid(),
         company: selectedCompany,
         location: selectedLocations,
         weather: selectedWeathers,

@@ -8,7 +8,6 @@ import { useRouter } from "next/router";
 
 export default function Header() {
   const pathName = usePathname();
-  const router = useRouter();
 
   return (
     <Nav>

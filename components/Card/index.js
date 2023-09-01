@@ -3,8 +3,10 @@ import Rating from "../Rating";
 import AverageRating from "../AverageRating";
 import { useState, useEffect } from "react";
 import LikeButton from "../LikeButton";
+import { useRouter } from "next/router";
 
 export default function Card({ card, mutateCards, likedCards, setLikedCards }) {
+  const router = useRouter();
   const [rating, setRating] = useState(0);
 
   useEffect(() => {
@@ -31,6 +33,18 @@ export default function Card({ card, mutateCards, likedCards, setLikedCards }) {
     }
   }
 
+  function handleEdit() {
+    router.push(
+      {
+        pathname: "add-game",
+        query: {
+          cardId: card.id,
+        },
+      },
+      "edit-game"
+    );
+  }
+
   return (
     <Main>
       <Article>
@@ -52,6 +66,9 @@ export default function Card({ card, mutateCards, likedCards, setLikedCards }) {
               // height="1.7rem"
             />
           </Likes>
+          <Edit>
+            <button onClick={handleEdit}>Edit</button>
+          </Edit>
         </CardHead>
         <CardBody>
           <h3>Prepare:</h3>
@@ -90,6 +107,11 @@ const CardName = styled.div`
 `;
 const Likes = styled.div`
   grid-column: 3;
+  place-self: center;
+  padding: 1rem;
+`;
+const Edit = styled.div`
+  grid-column: 4;
   place-self: center;
   padding: 1rem;
 `;
