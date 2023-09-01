@@ -185,11 +185,13 @@ export default function AddGame() {
 }
 const MainForm = styled.main`
   padding: 1rem;
-  background: #fdf7ed;
+
+  background: rgb(106, 70, 252);
   background: radial-gradient(
     circle,
-    rgba(238, 174, 202, 0.4682466736694678) 0%,
-    rgba(148, 187, 233, 0.41222426470588236) 100%
+    rgba(106, 70, 252, 0.1545211834733894) 0%,
+    rgba(255, 223, 223, 0.19653799019607843) 53%,
+    rgba(255, 255, 255, 0.07328869047619047) 100%
   );
 `;
 const TextInput = styled.input`
@@ -206,7 +208,8 @@ const TextInput = styled.input`
   &:focus {
     background-color: rgba(255,255,255,.3)
     border-color: #007BFF;
-    box-shadow: 0 0 10px rgba(0, 123, 255);
+    box-shadow: 5px 5px 0px rgba(0, 123, 255);
+    outline: none;
 `;
 const GameInfoTextArea = styled.textarea`
   width: 100%;
@@ -225,4 +228,6 @@ const GameInfoTextArea = styled.textarea`
     border-color: #8447ff;
     background-color: rgba(255,255,255,.3);
     box-shadow: 0 0 10px rgba(0, 123, 255);
+    outline: none;
+
 `;

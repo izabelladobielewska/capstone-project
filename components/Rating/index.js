@@ -11,7 +11,7 @@ export default function Rating({ handleRating, rating }) {
   }
 
   return (
-    <RatingWrapper>
+    <>
       {ratings.map((score) => (
         <RatingButton
           key={score}
@@ -19,16 +19,9 @@ export default function Rating({ handleRating, rating }) {
           onClick={() => onClickRating(score)}
         />
       ))}
-    </RatingWrapper>
+    </>
   );
 }
-
-const RatingWrapper = styled.div`
-  text-align: right;
-  width: 100%;
-  margin-top: 0.5rem;
-`;
-
 const RatingButton = styled(FontAwesomeIcon)`
   margin: 0 0.4rem;
 `;

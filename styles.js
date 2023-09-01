@@ -16,9 +16,8 @@ export default createGlobalStyle`
     purple: #3F0469
   }
 
-  body {
+  html, body {
     margin: 0;
-    font-family: system-ui;
     width: 100%;
     height: 100%;
     max-width: 375px;
@@ -29,13 +28,24 @@ export default createGlobalStyle`
     color: black;
     text-decoration: none;
   }
+  p, span {
+    font-family: SF Pro Text;
+    line-height: 1.3rem;
+    font-size: 0.95rem;
+  }
 h1{
   font-size: 1.5rem;
+  font-family: Bodoni;
+
 }
-  h3 {
-    padding: 1rem 0 0.5rem 0;
-  }
-  
+h2 {
+  font-family: SF Pro Text;
+}
+
+h3 {
+  padding: 1rem 0 0.5rem 0;
+  font-family: SF Pro Text;
+  }  
 `;
 export const StyledCheckboxLabel = styled.label`
   line-height: 1.5rem;
@@ -48,11 +58,11 @@ export const StyledCheckbox = styled.input.attrs({ type: "checkbox" })`
   height: 1rem;
   border: 1px solid #8447ff;
   border-radius: 4px;
-  margin-right: 0.5rem; /* Space between the checkbox and label */
+  margin-right: 0.5rem;
   cursor: pointer;
   &:checked {
     background-color: #8447ff;
-    border-color: #8447ff; /* Border color when checked */
+    border-color: #8447ff;
     color: white;
   }
 `;

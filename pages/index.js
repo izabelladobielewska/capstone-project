@@ -1,11 +1,7 @@
-import cards from "../public/assets/cards.js";
 import Card from "@/components/Card/index.js";
 import Pagination from "@/components/Pagination/index.js";
 import PreferenceTags from "@/components/PreferenceTags/index.js";
 import { useState } from "react";
-import useSWR from "swr";
-
-const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 export default function CardDeck({
   selectedLocations,
@@ -14,10 +10,13 @@ export default function CardDeck({
   setSelectedCompanions,
   setSelectedLocations,
   setSelectedWeathers,
+  likedCards,
+  setLikedCards,
+  db,
 }) {
-  const { data, error, isLoading, mutate } = useSWR("/api/getAll", fetcher);
-
+  const { data, error, isLoading, mutate } = db;
   const [currentIndex, setCurrentIndex] = useState(0);
+
   const filteredCards = (data?.cards || []).filter((card) => {
     let isAGoodGameSuggestion = true;
 
@@ -73,7 +72,12 @@ export default function CardDeck({
         selectedWeathers={selectedWeathers}
         setSelectedWeathers={setSelectedWeathers}
       />
-      <Card card={filteredCards[currentIndex]} mutateCards={mutate} />
+      <Card
+        card={filteredCards[currentIndex]}
+        mutateCards={mutate}
+        likedCards={likedCards}
+        setLikedCards={setLikedCards}
+      />
       <Pagination
         handlePrev={handlePrev}
         handleNext={handleNext}

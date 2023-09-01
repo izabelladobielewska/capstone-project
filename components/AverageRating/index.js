@@ -7,20 +7,21 @@ export default function AverageRating({ ratings }) {
     ? 0
     : ratings.reduce((sum, rating) => sum + rating, 0) / ratings.length;
   return (
-    <Rating>
+    <>
       <FontAwesomeIcon icon={faStar} />
       {avgRating > 0 ? (
         <>
           <span> {avgRating.toFixed(1)} </span>
-          <span> ({ratings.length}) </span>
+          <Votes> ({ratings.length}) </Votes>
         </>
       ) : (
         <span> &#8212;</span>
       )}
-    </Rating>
+    </>
   );
 }
-
-const Rating = styled.span`
-  float: right;
+const Votes = styled.p`
+  font-size: 0.8rem;
+  line-height: 0.9rem;
+  color: grey;
 `;
