@@ -46,7 +46,8 @@ const Nav = styled.header`
   top: 0;
   width: 100%;
   height: 4rem;
-`;
+  @media only screen and (min-width: 415px) {
+    width: 414px;`;
 const BrandLink = styled(Link)`
   grid-column: 4 / span 2;
   place-self: center;
