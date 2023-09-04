@@ -52,8 +52,8 @@ export default function Card({
   }
 
   return (
-    <Main>
-      <Article>
+    <Article>
+      <Section>
         <CardHead>
           <RatingDisplay>
             <AverageRating ratings={card.ratings} />
@@ -78,27 +78,41 @@ export default function Card({
           <h3>Rules:</h3>
           <StyledText>{card.rules}</StyledText>
         </CardBody>
-        <CardFooter>
-          <RatingBlock>
-            <Rating handleRating={handleRating} rating={rating} />
-          </RatingBlock>
-          {myOwnCards.includes(card.id) && (
-            <Edit onClick={handleEdit}>
-              <EditIcon
-                alt="link to edit this card"
-                color="black"
-                width="1.7rem"
-                height="1.7rem"
-              />
-            </Edit>
-          )}
-        </CardFooter>
-      </Article>
-    </Main>
+      </Section>
+      <CardFooter>
+        <RatingBlock>
+          <Rating handleRating={handleRating} rating={rating} />
+        </RatingBlock>
+        {myOwnCards.includes(card.id) && (
+          <Edit onClick={handleEdit}>
+            <EditIcon
+              alt="link to edit this card"
+              color="black"
+              width="1.7rem"
+              height="1.7rem"
+            />
+          </Edit>
+        )}
+      </CardFooter>
+    </Article>
   );
 }
-const Main = styled.main`
-  padding: 0rem 1rem;
+
+const Section = styled.section`
+  height: 65vh;
+  overflow-y: auto;
+`;
+
+const Article = styled.article`
+  margin: 0rem 1rem;
+  // position: relative;
+  // display: block;
+  box-shadow: 7px 7px 0px #f3c3a8;
+  border-radius: 10px;
+  overflow-y: auto;
+  // max-height: 70vh;
+  background-color: white;
+  border: 0.1rem solid black;
 `;
 const CardHead = styled.div`
   display: grid;
@@ -125,18 +139,10 @@ const Likes = styled.div`
   padding: 1rem;
 `;
 
-const Article = styled.article`
-  box-shadow: 7px 7px 0px #f3c3a8;
-  border-radius: 10px;
-  overflow-y: auto;
-  height: 70vh;
-  background-color: white;
-  border: 0.1rem solid black;
-`;
-
 const CardBody = styled.div`
   padding: 0px 20px 20px 20px;
-  border-bottom: 0.1rem solid black;
+  // min-height: 51vh;
+  // overflow-y: auto;
 `;
 
 const StyledText = styled.p`
@@ -146,9 +152,15 @@ const StyledText = styled.p`
 
 const CardFooter = styled.div`
   display: grid;
+  // position: absolute;
+  // bottom: 0;
   height: 4rem;
   grid-template-columns: auto 60px;
   align-items: center;
+  align-self: end;
+  border-top: 0.1rem solid black;
+  // background: white;
+  width: 100%;
 `;
 
 const RatingBlock = styled.div`
