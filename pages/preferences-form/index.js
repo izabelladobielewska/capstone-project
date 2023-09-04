@@ -19,9 +19,9 @@ export default function PreferencesForm({
 
   return (
     <Main>
-      <>
-        <StyledHeadline>Set Your Preferences</StyledHeadline>
-        <StyledText>I am bored, and...</StyledText>
+      <StyledHeadline>Set Your Preferences</StyledHeadline>
+      <StyledText>I am bored, and...</StyledText>
+      <OptionsContainer>
         {locations.map((location, i) => (
           <PreferencesButton
             key={location.value}
@@ -30,7 +30,9 @@ export default function PreferencesForm({
             setPreferences={setSelectedLocations}
           />
         ))}
-        <StyledText>The weather is</StyledText>
+      </OptionsContainer>
+      <StyledText>The weather is</StyledText>
+      <OptionsContainer>
         {weathers.map((weather, i) => (
           <PreferencesButton
             key={weather.value}
@@ -39,7 +41,9 @@ export default function PreferencesForm({
             setPreferences={setSelectedWeathers}
           />
         ))}
-        <StyledText>My company is </StyledText>
+      </OptionsContainer>
+      <StyledText>My company is </StyledText>{" "}
+      <OptionsContainer>
         {companions.map((company, i) => (
           <PreferencesButton
             key={company.value}
@@ -48,25 +52,40 @@ export default function PreferencesForm({
             setPreferences={setSelectedCompanions}
           />
         ))}
-      </>
-      <section>
+      </OptionsContainer>
+      <ButtonSection>
         <SubmitButton onClick={submitPreferences}>
           Show matching games &#8594;
         </SubmitButton>
-      </section>
+      </ButtonSection>
     </Main>
   );
 }
+const Main = styled.main`
+  display: grid;
+  height: 92vh;
+  grid-template-rows: auto auto auto 4rem;
+  padding: 1rem;
+`;
+const OptionsContainer = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 60px 60px;
+  gap: 1rem;
+`;
 
 const StyledText = styled.p`
   font-size: 1rem;
-  padding-top: 1rem;
-  font-weight: normal;
+  align-self: center;
+  padding: 1rem 0;
+  font-weight: bold;
 `;
-const Main = styled.main`
-  padding: 1rem;
-`;
+
 const StyledHeadline = styled.p`
   font-size: 1.2rem;
   font-weight: bolder;
+`;
+
+const ButtonSection = styled.section`
+  align-self: end;
 `;

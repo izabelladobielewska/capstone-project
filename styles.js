@@ -80,11 +80,12 @@ export const StyledCheckbox = styled.input.attrs({ type: "checkbox" })`
 export const SubmitButton = styled.button`
   margin-top: 1rem;
   letter-spacing: 0.05em;
-  border-radius: 3rem;
+  border-radius: 8px;
   border: none;
   width: 100%;
   padding: 0.8rem 1rem;
-  background-color: #8447ff;
+  background-color: black;
+  bottom: 1rem;
   color: white;
   font-size: 1rem;
   font-weight: light;
