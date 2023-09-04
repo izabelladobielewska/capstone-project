@@ -21,7 +21,6 @@ export default createGlobalStyle`
     margin: 0;
     width: 100%;
     height: 100%;
-    max-width: 414px;
     margin-inline: auto;
     background: rgb(106, 70, 252);
     background: radial-gradient(
@@ -30,7 +29,12 @@ export default createGlobalStyle`
       rgba(255, 223, 223, 0.19653799019607843) 53%,
       rgba(255, 255, 255, 0.07328869047619047) 100%
     );
+    @media only screen and (min-width: 415px) {
+      width: 414px;
     }
+  }
+    
+ 
   a {
     color: black;
     text-decoration: none;
