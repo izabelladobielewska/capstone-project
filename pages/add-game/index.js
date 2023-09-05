@@ -12,6 +12,7 @@ export default function AddGame({ db, myOwnCards, setMyOwnCards }) {
   const cardId = router.query.cardId;
   const cardToEdit = db.data?.cards.find((card) => card.id === cardId);
 
+  const [step, setStep] = useState(0);
   const [formData, setFormData] = useState({
     name: cardToEdit?.name || "",
     prepare: cardToEdit?.prepare || "",
@@ -50,9 +51,7 @@ export default function AddGame({ db, myOwnCards, setMyOwnCards }) {
     localStorage.setItem("myOwnCards", JSON.stringify(ownCardIds));
   }
 
-  async function handleSubmit(event) {
-    event.preventDefault();
-
+  async function handleSubmit() {
     if (selectedCompany.length === 0) {
       return alert("You have to select at least one of the company options!");
     }
@@ -95,7 +94,7 @@ export default function AddGame({ db, myOwnCards, setMyOwnCards }) {
 
   return (
     <MainForm>
-      <form onSubmit={handleSubmit}>
+      <Section className={step === 0 ? "active" : "hidden"}>
         <label htmlFor="name">
           <h3>What is the name of your game?:</h3>
         </label>
@@ -139,6 +138,10 @@ export default function AddGame({ db, myOwnCards, setMyOwnCards }) {
           onChange={handleChange}
           required
         />
+        <button onClick={() => setStep(1)}>Next Step</button>
+      </Section>
+      <Section className={step === 1 ? "active" : "hidden"}>
+        <button onClick={() => setStep(0)}>Back</button>
         <h3>Does one need company to play this game?</h3>
         {companions.map((companion) => (
           <div key={companion.value}>
@@ -199,9 +202,8 @@ export default function AddGame({ db, myOwnCards, setMyOwnCards }) {
             </StyledCheckboxLabel>
           </div>
         ))}
-
-        <SubmitButton type="submit">Submit This Game</SubmitButton>
-      </form>
+        <SubmitButton onClick={handleSubmit}>Submit This Game</SubmitButton>
+      </Section>
     </MainForm>
   );
 }
@@ -244,4 +246,10 @@ const GameInfoTextArea = styled.textarea`
     box-shadow: 5px 5px 0px rgba(0, 123, 255);
     outline: none;
 
+`;
+
+const Section = styled.section`
+  &.hidden {
+    display: none;
+  }
 `;
