@@ -26,9 +26,9 @@ export default function PreferencesButton({
 
 const Button = styled.button`
   background-color: ${(props) => (props.selected ? "#D0A7E2" : "transparent")};
-  border-radius: 3px;
+  border-radius: 8px;
   border: 2px solid #d0a7e2;
-  color: #210203;
-  margin: 0.5em 1em;
+  color: black;
+  // margin: 0.5em 1em;
   padding: 0.5em;
 `;

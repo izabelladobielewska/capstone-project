@@ -6,16 +6,27 @@ import styled from "styled-components";
 import { StyledCheckbox } from "@/styles";
 import { StyledCheckboxLabel } from "@/styles";
 import { SubmitButton } from "@/styles";
-export default function AddGame() {
+export default function AddGame({ db, myOwnCards, setMyOwnCards }) {
   const router = useRouter();
+
+  const cardId = router.query.cardId;
+  const cardToEdit = db.data?.cards.find((card) => card.id === cardId);
+
   const [formData, setFormData] = useState({
-    name: "",
-    prepare: "",
-    howToPlay: "",
+    name: cardToEdit?.name || "",
+    prepare: cardToEdit?.prepare || "",
+    howToPlay: cardToEdit?.howToPlay || "",
+    rules: cardToEdit?.rules || "",
   });
-  const [selectedCompany, setSelectedCompany] = useState([]);
-  const [selectedWeathers, setSelectedWeathers] = useState([]);
-  const [selectedLocations, setSelectedLocations] = useState([]);
+  const [selectedCompany, setSelectedCompany] = useState(
+    cardToEdit?.company || []
+  );
+  const [selectedWeathers, setSelectedWeathers] = useState(
+    cardToEdit?.weather || []
+  );
+  const [selectedLocations, setSelectedLocations] = useState(
+    cardToEdit?.location || []
+  );
 
   function handleCheckboxChange(event, state, setter) {
     const { value, checked } = event.target;
@@ -29,6 +40,14 @@ export default function AddGame() {
   function handleChange(event) {
     const { name, value } = event.target;
     setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
+  }
+
+  function storeOwnCards(newId) {
+    if (myOwnCards.includes(newId)) return;
+
+    const ownCardIds = [...myOwnCards, newId];
+    setMyOwnCards(ownCardIds);
+    localStorage.setItem("myOwnCards", JSON.stringify(ownCardIds));
   }
 
   async function handleSubmit(event) {
@@ -49,9 +68,10 @@ export default function AddGame() {
     }
 
     if (confirm("Are you happy with your new game?")) {
+      const newId = cardId || uid();
       const newGame = {
         ...formData,
-        id: uid(),
+        id: newId,
         company: selectedCompany,
         location: selectedLocations,
         weather: selectedWeathers,
@@ -64,7 +84,9 @@ export default function AddGame() {
           },
           body: JSON.stringify(newGame),
         });
-        router.push("/");
+        storeOwnCards(newId);
+        router.push({ pathname: "/", query: { cardId: newId } });
+        db.mutate();
       } catch (e) {
         console.error(e);
       }
@@ -185,14 +207,6 @@ export default function AddGame() {
 }
 const MainForm = styled.main`
   padding: 1rem;
-
-  background: rgb(106, 70, 252);
-  background: radial-gradient(
-    circle,
-    rgba(106, 70, 252, 0.1545211834733894) 0%,
-    rgba(255, 223, 223, 0.19653799019607843) 53%,
-    rgba(255, 255, 255, 0.07328869047619047) 100%
-  );
 `;
 const TextInput = styled.input`
   width: 100%;
@@ -209,7 +223,7 @@ const TextInput = styled.input`
     background-color: rgba(255,255,255,.3)
     border-color: #007BFF;
     box-shadow: 5px 5px 0px rgba(0, 123, 255);
-    outline: none;
+    outline: none;}
 `;
 const GameInfoTextArea = styled.textarea`
   width: 100%;
@@ -227,7 +241,7 @@ const GameInfoTextArea = styled.textarea`
   &:focus {
     border-color: #8447ff;
     background-color: rgba(255,255,255,.3);
-    box-shadow: 0 0 10px rgba(0, 123, 255);
+    box-shadow: 5px 5px 0px rgba(0, 123, 255);
     outline: none;
 
 `;

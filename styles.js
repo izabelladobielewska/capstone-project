@@ -7,6 +7,7 @@ export default createGlobalStyle`
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    
   }
   :root {
     --base-color: #fff;
@@ -20,10 +21,20 @@ export default createGlobalStyle`
     margin: 0;
     width: 100%;
     height: 100%;
-    max-width: 375px;
     margin-inline: auto;
-    background-color: var(--base-color)
+    background: rgb(106, 70, 252);
+    background: radial-gradient(
+      circle,
+      rgba(106, 70, 252, 0.1545211834733894) 0%,
+      rgba(255, 223, 223, 0.19653799019607843) 53%,
+      rgba(255, 255, 255, 0.07328869047619047) 100%
+    );
+    @media only screen and (min-width: 415px) {
+      width: 414px;
+    }
   }
+    
+ 
   a {
     color: black;
     text-decoration: none;
@@ -69,11 +80,12 @@ export const StyledCheckbox = styled.input.attrs({ type: "checkbox" })`
 export const SubmitButton = styled.button`
   margin-top: 1rem;
   letter-spacing: 0.05em;
-  border-radius: 3rem;
+  border-radius: 8px;
   border: none;
   width: 100%;
   padding: 0.8rem 1rem;
-  background-color: #8447ff;
+  background-color: black;
+  bottom: 1rem;
   color: white;
   font-size: 1rem;
   font-weight: light;

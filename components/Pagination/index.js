@@ -12,15 +12,16 @@ export default function Pagination({ handlePrev, handleNext, deckSize }) {
 
 const Section = styled.section`
   display: flex;
+  z-index: 2;
   justify-content: space-between;
   align-items: center;
   margin-top: 10px;
   padding: 1rem;
 `;
 const Button = styled.button`
-  padding: 0.5rem 1rem;
+  padding: 0.8rem 1.2rem;
   background-color: black;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   color: white;
 `;

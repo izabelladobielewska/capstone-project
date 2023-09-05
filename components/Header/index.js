@@ -2,13 +2,11 @@ import Link from "next/link";
 import styled from "styled-components";
 import { PreferencesIcon } from "@/public/assets/images/preferences-icon";
 import { usePathname } from "next/navigation";
-import { LikesIcon } from "@/public/assets/images/likes-icon";
 import { AddIcon } from "@/public/assets/images/add-icon";
-import { useRouter } from "next/router";
-
+import { faHeart as heartUnselected } from "@fortawesome/free-regular-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export default function Header() {
   const pathName = usePathname();
-  const router = useRouter();
 
   return (
     <Nav>
@@ -24,12 +22,7 @@ export default function Header() {
         <h1>Endstagram</h1>
       </BrandLink>
       <LikesLink href="/likes">
-        <LikesIcon
-          alt="show my likes"
-          color="black"
-          width="1.7rem"
-          height="1.7rem"
-        />
+        <LikeIcon alt="link to my likes" icon={heartUnselected} />
       </LikesLink>
       <PreferenceLink href="/preferences-form" pathname={pathName}>
         <PreferencesIcon
@@ -51,14 +44,14 @@ const Nav = styled.header`
   background-color: #f3f0ff;
   position: fixed;
   top: 0;
-  left: 0;
   width: 100%;
   height: 4rem;
-`;
+  @media only screen and (min-width: 415px) {
+    width: 414px;`;
+
 const BrandLink = styled(Link)`
   grid-column: 4 / span 2;
   place-self: center;
-  // color: #3f0469;
   background-color: transparent;
   border: none;
   margin: 0.5em 0em 0.5em 0;
@@ -92,10 +85,13 @@ const PreferenceLink = styled(Link)`
   border: none;
   padding: 0;
   text-decoration: none;
+
+  svg {
+    opacity: ${(props) =>
+      props.pathname === "/preferences-form" ? "1" : "0.8"};
+    transition: 1s;
+  }
 `;
-// for later
-// svg {
-//   opacity: ${(props) =>
-//     props.pathname === "/preferences-form" ? "0.5" : "1"};
-//   transition: 1s;
-// }
+const LikeIcon = styled(FontAwesomeIcon)`
+  font-size: 1.3rem;
+`;

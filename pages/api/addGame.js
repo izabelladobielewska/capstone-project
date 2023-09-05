@@ -8,7 +8,10 @@ export default async function handler(req, res) {
     const client = await clientPromise;
     const collection = client.db("endstagram").collection("cards");
 
-    collection.insertOne(newGame);
+    // collection.insertOne(newGame);
+    collection.replaceOne({ id: newGame.id }, newGame, {
+      upsert: true,
+    });
 
     res.status(200).send("success");
   } catch (e) {

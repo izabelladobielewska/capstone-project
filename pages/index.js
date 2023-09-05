@@ -1,7 +1,8 @@
 import Card from "@/components/Card/index.js";
 import Pagination from "@/components/Pagination/index.js";
 import PreferenceTags from "@/components/PreferenceTags/index.js";
-import { useState } from "react";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
 export default function CardDeck({
   selectedLocations,
@@ -12,10 +13,23 @@ export default function CardDeck({
   setSelectedWeathers,
   likedCards,
   setLikedCards,
+  myOwnCards,
   db,
 }) {
+  const router = useRouter();
   const { data, error, isLoading, mutate } = db;
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    if (router.query.cardId) {
+      const newIndex = db.data?.cards.findIndex(
+        (card) => card.id === router.query.cardId
+      );
+      if (newIndex > -1) {
+        setCurrentIndex(newIndex);
+      }
+    }
+  }, [db.data, router.query.cardId]);
 
   const filteredCards = (data?.cards || []).filter((card) => {
     let isAGoodGameSuggestion = true;
@@ -77,6 +91,7 @@ export default function CardDeck({
         mutateCards={mutate}
         likedCards={likedCards}
         setLikedCards={setLikedCards}
+        myOwnCards={myOwnCards}
       />
       <Pagination
         handlePrev={handlePrev}
