@@ -54,7 +54,7 @@ export default function LikedCardsDeck({
             href="https://www.flaticon.com/free-icons/empty"
             title="empty icons"
           >
-            Empty icons created by smashingstocks - Flaticon
+            Empty Icon created by smashingstocks - Flaticon
           </a>
         </Reference>
       </Main>
@@ -83,6 +83,7 @@ export default function LikedCardsDeck({
 }
 const Main = styled.main`
   padding: 0rem 1rem;
+  height: 92vh;
 `;
 const Head = styled.main`
   padding: 0rem 1rem 1rem 1rem;
@@ -94,13 +95,19 @@ const Lynk = styled(Link)`
   text-decoration: underline 3px black;
 `;
 const Ymage = styled(Image)`
+  postion: absolute;
+  margin-left: calc (55% - 120px);
   position: absolute;
-  left: calc(55% - 120px);
-  top: 25%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 `;
 const Reference = styled.p`
   position: absolute;
-  bottom: 3rem;
+  bottom: 2rem;
+  left: 0;
   opacity: 0.5;
   font-size: 0.8rem;
+  width: 100%;
+  text-align: center;
 `;

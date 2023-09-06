@@ -138,10 +138,10 @@ export default function AddGame({ db, myOwnCards, setMyOwnCards }) {
           onChange={handleChange}
           required
         />
-        <button onClick={() => setStep(1)}>Next Step</button>
+        <Button onClick={() => setStep(1)}>Next Step &#8594;</Button>
       </Section>
       <Section className={step === 1 ? "active" : "hidden"}>
-        <button onClick={() => setStep(0)}>Back</button>
+        <Button onClick={() => setStep(0)}>&#8592; Back</Button>
         <h3>Does one need company to play this game?</h3>
         {companions.map((companion) => (
           <div key={companion.value}>
@@ -229,7 +229,7 @@ const TextInput = styled.input`
 `;
 const GameInfoTextArea = styled.textarea`
   width: 100%;
-  height: 80px;
+  height: 8rem;
   border-radius: 5px;
   padding: 0.5rem 0.5rem;
   box-sizing: border-box;
@@ -252,4 +252,13 @@ const Section = styled.section`
   &.hidden {
     display: none;
   }
+`;
+const Button = styled.button`
+  padding: 0.8rem 1.2rem;
+  margin-top: 1rem;
+  background-color: black;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  word-spacing: 5px;
 `;

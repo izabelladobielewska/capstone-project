@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import LikeButton from "../LikeButton";
 import { useRouter } from "next/router";
 import { EditIcon } from "@/public/assets/images/edit-icon";
+import { DeleteIcon } from "@/public/assets/images/delete-icon";
 export default function Card({
   card,
   mutateCards,
@@ -80,6 +81,18 @@ export default function Card({
         </CardBody>
       </Section>
       <CardFooter>
+        {" "}
+        {myOwnCards.includes(card.id) && (
+          <Delete>
+            {" "}
+            <DeleteIcon
+              alt="link to delete this card"
+              color="black"
+              width="1.7rem"
+              height="1.7rem"
+            />
+          </Delete>
+        )}
         <RatingBlock>
           <Rating handleRating={handleRating} rating={rating} />
         </RatingBlock>
@@ -105,8 +118,6 @@ const Section = styled.section`
 
 const Article = styled.article`
   margin: 0rem 1rem;
-  // position: relative;
-  // display: block;
   box-shadow: 7px 7px 0px #f3c3a8;
   border-radius: 10px;
   overflow-y: auto;
@@ -152,24 +163,27 @@ const StyledText = styled.p`
 
 const CardFooter = styled.div`
   display: grid;
-  // position: absolute;
-  // bottom: 0;
   height: 4rem;
-  grid-template-columns: auto 60px;
+  grid-template-columns: 60px auto 60px;
   align-items: center;
   align-self: end;
   border-top: 0.1rem solid black;
   // background: white;
   width: 100%;
 `;
-
+const Delete = styled.div`
+  place-self: center;
+  padding: 1rem;
+  border-right: 0.1rem solid black;
+`;
 const RatingBlock = styled.div`
+  grid-column: 2;
   place-self: center;
   padding: 1rem;
 `;
 
 const Edit = styled.div`
-  grid-column: 2;
+  grid-column: 3;
   place-self: center;
   padding: 1rem;
   border-left: 0.1rem solid black;
