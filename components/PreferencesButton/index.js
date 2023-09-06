@@ -30,6 +30,5 @@ const Button = styled.button`
   border-radius: 8px;
   border: 2px solid #d0a7e2;
   color: black;
-  // margin: 0.5em 1em;
   padding: 0.5em;
 `;

@@ -139,84 +139,65 @@ export default function AddGame({ db, myOwnCards, setMyOwnCards }) {
           onChange={handleChange}
           required
         />
-        <Button onClick={() => setStep(1)}>Next Step &#8594;</Button>
+        <ButtonRight>
+          <Button onClick={() => setStep(1)}>Next Step &#8594;</Button>
+        </ButtonRight>
       </Section>
       <Section className={step === 1 ? "active" : "hidden"}>
         <Button onClick={() => setStep(0)}>&#8592; Back</Button>
         <h3>Does one need company to play this game?</h3>
-        {companions.map((companion) => (
-          <div key={companion.value}>
-            <StyledCheckboxLabel>
-              <StyledCheckbox
-                type="checkbox"
-                value={companion.value}
-                checked={selectedCompany.includes(companion.value)}
-                onChange={(event) =>
-                  handleSelectButtonChange(
-                    event,
-                    selectedCompany,
-                    setSelectedCompany
-                  )
-                }
-              />
-              {companion.desc}
-            </StyledCheckboxLabel>
-          </div>
-        ))}
+        <OptionsContainer>
+          {companions.map((companion) => (
+            <PreferencesButton
+              key={companion.value}
+              preference={companion}
+              selectedPreferences={selectedCompany}
+              setPreferences={setSelectedCompany}
+              textKey="desc"
+            />
+          ))}
+        </OptionsContainer>
+
         <h3>In what weather can you play this game?</h3>
-        {weathers.map((weather) => (
-          <div key={weather.value}>
-            <StyledCheckboxLabel>
-              <StyledCheckbox
-                type="checkbox"
-                value={weather.value}
-                checked={selectedWeathers.includes(weather.value)}
-                onChange={(event) =>
-                  handleSelectButtonChange(
-                    event,
-                    selectedWeathers,
-                    setSelectedWeathers
-                  )
-                }
-              />
-              {weather.desc}
-            </StyledCheckboxLabel>
-          </div>
-        ))}
+        <OptionsContainer>
+          {weathers.map((weather) => (
+            <PreferencesButton
+              key={weather.value}
+              preference={weather}
+              selectedPreferences={selectedWeathers}
+              setPreferences={setSelectedWeathers}
+              textKey="desc"
+            />
+          ))}
+        </OptionsContainer>
+
         <h3>Where can you play this game?</h3>
-        {locations.map((location) => (
-          // <div key={location.value}>
-          //   <StyledCheckboxLabel>
-          //     <SelectButton
-          //       value={location.value}
-          //       selected={selectedLocations.includes(location.value)}
-          //       onClick={(event) =>
-          //         handleSelectButtonChange(
-          //           event,
-          //           selectedLocations,
-          //           setSelectedLocations
-          //         )
-          //       }
-          //     >
-          //       {location.desc}
-          //     </SelectButton>
-          //   </StyledCheckboxLabel>
-          // </div>
-          <PreferencesButton
-            key={location.value}
-            preference={location}
-            selectedPreferences={selectedLocations}
-            setPreferences={setSelectedLocations}
-            textKey="desc"
-          />
-        ))}
+        <OptionsContainer>
+          {locations.map((location) => (
+            <PreferencesButton
+              key={location.value}
+              preference={location}
+              selectedPreferences={selectedLocations}
+              setPreferences={setSelectedLocations}
+              textKey="desc"
+            />
+          ))}
+        </OptionsContainer>
         <SubmitButton onClick={handleSubmit}>Submit This Game</SubmitButton>
       </Section>
     </MainForm>
   );
 }
 const MainForm = styled.main`
+  display: grid;
+  height: 92vh;
+  grid-template-rows: auto 4rem;
   padding: 1rem;
+`;
+const ButtonRight = styled.div`
+  justify-content: flex-end;
+  margin: 10px 0 0;
+  grid-row: 2;
 `;
 const TextInput = styled.input`
   width: 100%;
@@ -263,6 +244,7 @@ const Section = styled.section`
 `;
 const Button = styled.button`
   padding: 0.8rem 1.2rem;
+  grid-row: 2;
   margin-top: 1rem;
   background-color: black;
   border: none;
@@ -270,11 +252,10 @@ const Button = styled.button`
   color: white;
   word-spacing: 3px;
 `;
-const SelectButton = styled.button`
-  background-color: ${(props) => (props.selected ? "#D0A7E2" : "transparent")};
-  border-radius: 8px;
-  border: 2px solid #d0a7e2;
-  color: black;
-  // margin: 0.5em 1em;
-  padding: 0.5em;
+
+const OptionsContainer = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 60px 60px;
+  gap: 1rem;
 `;
