@@ -4,6 +4,7 @@ export default function PreferencesButton({
   preference,
   selectedPreferences,
   setPreferences,
+  textKey = "text",
 }) {
   function handleClick() {
     if (selectedPreferences.includes(preference.value)) {
@@ -19,7 +20,7 @@ export default function PreferencesButton({
       onClick={handleClick}
       selected={selectedPreferences.includes(preference.value)}
     >
-      {preference.text}
+      {preference[textKey]}
     </Button>
   );
 }

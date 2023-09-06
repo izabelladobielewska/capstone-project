@@ -6,6 +6,7 @@ import styled from "styled-components";
 import { StyledCheckbox } from "@/styles";
 import { StyledCheckboxLabel } from "@/styles";
 import { SubmitButton } from "@/styles";
+import PreferencesButton from "@/components/PreferencesButton";
 export default function AddGame({ db, myOwnCards, setMyOwnCards }) {
   const router = useRouter();
 
@@ -29,14 +30,14 @@ export default function AddGame({ db, myOwnCards, setMyOwnCards }) {
     cardToEdit?.location || []
   );
 
-  function handleCheckboxChange(event, state, setter) {
-    const { value, checked } = event.target;
-    if (checked) {
-      setter([...state, value]);
-    } else {
-      setter(state.filter((item) => item !== value));
-    }
-  }
+  // function handleSelectButtonChange(value, state, setter) {
+  //   if (state.includes(value)) {
+  //     setter([...state, value]);
+  //   } else {
+  //     setter(state.filter((item) => item !== value));
+  //   }
+  //   console.log(state);
+  // }
 
   function handleChange(event) {
     const { name, value } = event.target;
@@ -151,7 +152,7 @@ export default function AddGame({ db, myOwnCards, setMyOwnCards }) {
                 value={companion.value}
                 checked={selectedCompany.includes(companion.value)}
                 onChange={(event) =>
-                  handleCheckboxChange(
+                  handleSelectButtonChange(
                     event,
                     selectedCompany,
                     setSelectedCompany
@@ -171,7 +172,7 @@ export default function AddGame({ db, myOwnCards, setMyOwnCards }) {
                 value={weather.value}
                 checked={selectedWeathers.includes(weather.value)}
                 onChange={(event) =>
-                  handleCheckboxChange(
+                  handleSelectButtonChange(
                     event,
                     selectedWeathers,
                     setSelectedWeathers
@@ -184,23 +185,30 @@ export default function AddGame({ db, myOwnCards, setMyOwnCards }) {
         ))}
         <h3>Where can you play this game?</h3>
         {locations.map((location) => (
-          <div key={location.value}>
-            <StyledCheckboxLabel>
-              <StyledCheckbox
-                type="checkbox"
-                value={location.value}
-                checked={selectedLocations.includes(location.value)}
-                onChange={(event) =>
-                  handleCheckboxChange(
-                    event,
-                    selectedLocations,
-                    setSelectedLocations
-                  )
-                }
-              />
-              {location.desc}
-            </StyledCheckboxLabel>
-          </div>
+          // <div key={location.value}>
+          //   <StyledCheckboxLabel>
+          //     <SelectButton
+          //       value={location.value}
+          //       selected={selectedLocations.includes(location.value)}
+          //       onClick={(event) =>
+          //         handleSelectButtonChange(
+          //           event,
+          //           selectedLocations,
+          //           setSelectedLocations
+          //         )
+          //       }
+          //     >
+          //       {location.desc}
+          //     </SelectButton>
+          //   </StyledCheckboxLabel>
+          // </div>
+          <PreferencesButton
+            key={location.value}
+            preference={location}
+            selectedPreferences={selectedLocations}
+            setPreferences={setSelectedLocations}
+            textKey="desc"
+          />
         ))}
         <SubmitButton onClick={handleSubmit}>Submit This Game</SubmitButton>
       </Section>
@@ -260,5 +268,13 @@ const Button = styled.button`
   border: none;
   border-radius: 8px;
   color: white;
-  word-spacing: 5px;
+  word-spacing: 3px;
+`;
+const SelectButton = styled.button`
+  background-color: ${(props) => (props.selected ? "#D0A7E2" : "transparent")};
+  border-radius: 8px;
+  border: 2px solid #d0a7e2;
+  color: black;
+  // margin: 0.5em 1em;
+  padding: 0.5em;
 `;
