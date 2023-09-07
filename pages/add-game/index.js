@@ -92,7 +92,12 @@ export default function AddGame({ db, myOwnCards, setMyOwnCards }) {
       }
     }
   }
-
+async function handleDelete () {
+  method: "DELETE",
+  headers: {
+    "Content-Type": "application/json";
+  },
+}
   return (
     <MainForm>
       <Section className={step === 0 ? "active" : "hidden"}>
