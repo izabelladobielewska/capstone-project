@@ -39,6 +39,16 @@ export default function Card({
       console.error(e);
     }
   }
+  async function handleDelete() {
+    try {
+      await fetch(`/api/deleteGame?id=${card.id}`, {
+        method: "DELETE",
+      });
+      router.push("/");
+    } catch (e) {
+      console.error(e);
+    }
+  }
 
   function handleEdit() {
     router.push(
@@ -81,10 +91,8 @@ export default function Card({
         </CardBody>
       </Section>
       <CardFooter>
-        {" "}
         {myOwnCards.includes(card.id) && (
           <Delete onClick={handleDelete}>
-            {" "}
             <DeleteIcon
               alt="link to delete this card"
               color="black"
@@ -121,7 +129,6 @@ const Article = styled.article`
   box-shadow: 7px 7px 0px #f3c3a8;
   border-radius: 10px;
   overflow-y: auto;
-  // max-height: 70vh;
   background-color: white;
   border: 0.1rem solid black;
 `;

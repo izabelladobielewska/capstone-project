@@ -10,11 +10,11 @@ export default createGlobalStyle`
     
   }
   :root {
-    --base-color: #fff;
-    --primary-color: #210203;
-    --secondary-color: #D0A7E2;
-    --terciary-color: #37A994;
-    purple: #3F0469
+    // --base-color: #fff;
+    // --primary-color: #210203;
+    // --secondary-color: #D0A7E2;
+    // --terciary-color: #37A994;
+    // purple: #3F0469
   }
 
   html, body {
@@ -36,17 +36,18 @@ export default createGlobalStyle`
     
  
   a {
-    color: black;
+    color: #2D2A32;
     text-decoration: none;
   }
   p, span {
-    font-family: SF Pro Text;
+    font-family: sans-serif;
     line-height: 1.3rem;
     font-size: 0.95rem;
+    color: #2D2A32;
   }
 h1{
   font-size: 1.5rem;
-  font-family: Bodoni;
+  font-family: sans-serif;
 
 }
 h2 {
@@ -58,25 +59,7 @@ h3 {
   font-family: SF Pro Text;
   }  
 `;
-export const StyledCheckboxLabel = styled.label`
-  line-height: 1.5rem;
-  font-size: 1rem;
-`;
-export const StyledCheckbox = styled.input.attrs({ type: "checkbox" })`
-  appearance: none;
-  vertical-align: text-bottom;
-  width: 1rem;
-  height: 1rem;
-  border: 1px solid #8447ff;
-  border-radius: 4px;
-  margin-right: 0.5rem;
-  cursor: pointer;
-  &:checked {
-    background-color: #8447ff;
-    border-color: #8447ff;
-    color: white;
-  }
-`;
+
 export const SubmitButton = styled.button`
   margin-top: 1rem;
   letter-spacing: 0.05em;
@@ -84,7 +67,7 @@ export const SubmitButton = styled.button`
   border: none;
   width: 100%;
   padding: 0.8rem 1rem;
-  background-color: black;
+  background-color: #2d2a32;
   bottom: 1rem;
   color: white;
   font-size: 1rem;

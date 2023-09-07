@@ -41,7 +41,7 @@ const Nav = styled.header`
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   justify-items: center;
   align-items: start;
-  background-color: #f3f0ff;
+  background-color: #F1ECFE;
   position: fixed;
   top: 0;
   width: 100%;
@@ -51,6 +51,8 @@ const Nav = styled.header`
 
 const BrandLink = styled(Link)`
   grid-column: 4 / span 2;
+  color: #2d2a32;
+  letter-spacing: 1px;
   place-self: center;
   background-color: transparent;
   border: none;
@@ -60,7 +62,7 @@ const BrandLink = styled(Link)`
   &:active {
     opacity: 0.5;
   }
-  transition: 1s;
+  transition: 0.3s;
 `;
 const AddLink = styled(Link)`
   grid-column: 1;
