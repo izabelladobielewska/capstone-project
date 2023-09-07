@@ -82,14 +82,14 @@ export default function Card({
       </Section>
       <CardFooter>
         {myOwnCards.includes(card.id) && (
-          <Delete onClick={handleDelete}>
-            <DeleteIcon
-              alt="link to delete this card"
-              color="black"
-              width="1.7rem"
-              height="1.7rem"
-            />
-          </Delete>
+          // <Delete onClick={handleDelete}>
+          <DeleteIcon
+            alt="link to delete this card"
+            color="black"
+            width="1.7rem"
+            height="1.7rem"
+          />
+          // </Delete>
         )}
         <RatingBlock>
           <Rating handleRating={handleRating} rating={rating} />
