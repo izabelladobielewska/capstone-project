@@ -81,10 +81,8 @@ export default function Card({
         </CardBody>
       </Section>
       <CardFooter>
-        {" "}
         {myOwnCards.includes(card.id) && (
-          <Delete>
-            {" "}
+          <Delete onClick={handleDelete}>
             <DeleteIcon
               alt="link to delete this card"
               color="black"

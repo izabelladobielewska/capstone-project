@@ -30,15 +30,6 @@ export default function AddGame({ db, myOwnCards, setMyOwnCards }) {
     cardToEdit?.location || []
   );
 
-  // function handleSelectButtonChange(value, state, setter) {
-  //   if (state.includes(value)) {
-  //     setter([...state, value]);
-  //   } else {
-  //     setter(state.filter((item) => item !== value));
-  //   }
-  //   console.log(state);
-  // }
-
   function handleChange(event) {
     const { name, value } = event.target;
     setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
@@ -95,7 +86,7 @@ export default function AddGame({ db, myOwnCards, setMyOwnCards }) {
 
   return (
     <MainForm>
-      <Section className={step === 0 ? "active" : "hidden"}>
+      <Section active={step === 0}>
         <label htmlFor="name">
           <h3>What is the name of your game?:</h3>
         </label>
@@ -143,7 +134,7 @@ export default function AddGame({ db, myOwnCards, setMyOwnCards }) {
           <Button onClick={() => setStep(1)}>Next Step &#8594;</Button>
         </ButtonRight>
       </Section>
-      <Section className={step === 1 ? "active" : "hidden"}>
+      <Section active={step === 1}>
         <Button onClick={() => setStep(0)}>&#8592; Back</Button>
         <h3>Does one need company to play this game?</h3>
         <OptionsContainer>
@@ -238,9 +229,7 @@ const GameInfoTextArea = styled.textarea`
 `;
 
 const Section = styled.section`
-  &.hidden {
-    display: none;
-  }
+  display: ${(props) => (props.active ? "block" : "none")};
 `;
 const Button = styled.button`
   padding: 0.8rem 1.2rem;
