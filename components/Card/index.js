@@ -159,8 +159,6 @@ const Likes = styled.div`
 
 const CardBody = styled.div`
   padding: 0px 20px 20px 20px;
-  // min-height: 51vh;
-  // overflow-y: auto;
 `;
 
 const StyledText = styled.p`
@@ -175,7 +173,6 @@ const CardFooter = styled.div`
   align-items: center;
   align-self: end;
   border-top: 0.1rem solid black;
-  // background: white;
   width: 100%;
 `;
 const Delete = styled.div`

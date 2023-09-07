@@ -52,6 +52,7 @@ const Nav = styled.header`
 const BrandLink = styled(Link)`
   grid-column: 4 / span 2;
   color: #2d2a32;
+  // color: #f07054;
   letter-spacing: 1px;
   place-self: center;
   background-color: transparent;

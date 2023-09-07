@@ -48,15 +48,19 @@ export default createGlobalStyle`
 h1{
   font-size: 1.5rem;
   font-family: sans-serif;
-
+color: #2d2a32;
 }
 h2 {
   font-family: SF Pro Text;
+  color: #2d2a32;
+
 }
 
 h3 {
   padding: 1rem 0 0.5rem 0;
   font-family: SF Pro Text;
+  color: #2d2a32;
+
   }  
 `;
 
