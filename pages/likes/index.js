@@ -1,8 +1,10 @@
 import Card from "@/components/Card/index.js";
 import Pagination from "@/components/Pagination/index.js";
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import styled from "styled-components";
+import img from "@/public/assets/images/empty-folder.png";
 
 export default function LikedCardsDeck({
   myOwnCards,
@@ -43,9 +45,18 @@ export default function LikedCardsDeck({
       <Main>
         <h3>Your Likes</h3>
         <StyledText>
-          Oh no, You have no favorites yet,{" "}
-          <Lynk href="/">browse the games to find some.</Lynk>
+          Oh no, You have no favorites yet,
+          <br /> <Lynk href="/">browse the games to find some.</Lynk>
         </StyledText>
+        <Ymage src={img} width={120} height={120} alt="Empty folder" />
+        <Reference>
+          <a
+            href="https://www.flaticon.com/free-icons/empty"
+            title="empty icons"
+          >
+            Empty Icon created by smashingstocks - Flaticon
+          </a>
+        </Reference>
       </Main>
     );
   }
@@ -72,6 +83,7 @@ export default function LikedCardsDeck({
 }
 const Main = styled.main`
   padding: 0rem 1rem;
+  height: 92vh;
 `;
 const Head = styled.main`
   padding: 0rem 1rem 1rem 1rem;
@@ -81,4 +93,21 @@ const StyledText = styled.p`
 `;
 const Lynk = styled(Link)`
   text-decoration: underline 3px black;
+`;
+const Ymage = styled(Image)`
+  postion: absolute;
+  margin-left: calc (55% - 120px);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+`;
+const Reference = styled.p`
+  position: absolute;
+  bottom: 2rem;
+  left: 0;
+  opacity: 0.5;
+  font-size: 0.8rem;
+  width: 100%;
+  text-align: center;
 `;

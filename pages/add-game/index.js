@@ -6,12 +6,14 @@ import styled from "styled-components";
 import { StyledCheckbox } from "@/styles";
 import { StyledCheckboxLabel } from "@/styles";
 import { SubmitButton } from "@/styles";
+import PreferencesButton from "@/components/PreferencesButton";
 export default function AddGame({ db, myOwnCards, setMyOwnCards }) {
   const router = useRouter();
 
   const cardId = router.query.cardId;
   const cardToEdit = db.data?.cards.find((card) => card.id === cardId);
 
+  const [step, setStep] = useState(0);
   const [formData, setFormData] = useState({
     name: cardToEdit?.name || "",
     prepare: cardToEdit?.prepare || "",
@@ -28,15 +30,6 @@ export default function AddGame({ db, myOwnCards, setMyOwnCards }) {
     cardToEdit?.location || []
   );
 
-  function handleCheckboxChange(event, state, setter) {
-    const { value, checked } = event.target;
-    if (checked) {
-      setter([...state, value]);
-    } else {
-      setter(state.filter((item) => item !== value));
-    }
-  }
-
   function handleChange(event) {
     const { name, value } = event.target;
     setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
@@ -50,9 +43,7 @@ export default function AddGame({ db, myOwnCards, setMyOwnCards }) {
     localStorage.setItem("myOwnCards", JSON.stringify(ownCardIds));
   }
 
-  async function handleSubmit(event) {
-    event.preventDefault();
-
+  async function handleSubmit() {
     if (selectedCompany.length === 0) {
       return alert("You have to select at least one of the company options!");
     }
@@ -95,7 +86,7 @@ export default function AddGame({ db, myOwnCards, setMyOwnCards }) {
 
   return (
     <MainForm>
-      <form onSubmit={handleSubmit}>
+      <Section active={step === 0}>
         <label htmlFor="name">
           <h3>What is the name of your game?:</h3>
         </label>
@@ -139,74 +130,65 @@ export default function AddGame({ db, myOwnCards, setMyOwnCards }) {
           onChange={handleChange}
           required
         />
+        <ButtonRight>
+          <Button onClick={() => setStep(1)}>Next Step &#8594;</Button>
+        </ButtonRight>
+      </Section>
+      <Section active={step === 1}>
+        <Button onClick={() => setStep(0)}>&#8592; Back</Button>
         <h3>Does one need company to play this game?</h3>
-        {companions.map((companion) => (
-          <div key={companion.value}>
-            <StyledCheckboxLabel>
-              <StyledCheckbox
-                type="checkbox"
-                value={companion.value}
-                checked={selectedCompany.includes(companion.value)}
-                onChange={(event) =>
-                  handleCheckboxChange(
-                    event,
-                    selectedCompany,
-                    setSelectedCompany
-                  )
-                }
-              />
-              {companion.desc}
-            </StyledCheckboxLabel>
-          </div>
-        ))}
-        <h3>In what weather can you play this game?</h3>
-        {weathers.map((weather) => (
-          <div key={weather.value}>
-            <StyledCheckboxLabel>
-              <StyledCheckbox
-                type="checkbox"
-                value={weather.value}
-                checked={selectedWeathers.includes(weather.value)}
-                onChange={(event) =>
-                  handleCheckboxChange(
-                    event,
-                    selectedWeathers,
-                    setSelectedWeathers
-                  )
-                }
-              />
-              {weather.desc}
-            </StyledCheckboxLabel>
-          </div>
-        ))}
-        <h3>Where can you play this game?</h3>
-        {locations.map((location) => (
-          <div key={location.value}>
-            <StyledCheckboxLabel>
-              <StyledCheckbox
-                type="checkbox"
-                value={location.value}
-                checked={selectedLocations.includes(location.value)}
-                onChange={(event) =>
-                  handleCheckboxChange(
-                    event,
-                    selectedLocations,
-                    setSelectedLocations
-                  )
-                }
-              />
-              {location.desc}
-            </StyledCheckboxLabel>
-          </div>
-        ))}
+        <OptionsContainer>
+          {companions.map((companion) => (
+            <PreferencesButton
+              key={companion.value}
+              preference={companion}
+              selectedPreferences={selectedCompany}
+              setPreferences={setSelectedCompany}
+              textKey="desc"
+            />
+          ))}
+        </OptionsContainer>
 
-        <SubmitButton type="submit">Submit This Game</SubmitButton>
-      </form>
+        <h3>In what weather can you play this game?</h3>
+        <OptionsContainer>
+          {weathers.map((weather) => (
+            <PreferencesButton
+              key={weather.value}
+              preference={weather}
+              selectedPreferences={selectedWeathers}
+              setPreferences={setSelectedWeathers}
+              textKey="desc"
+            />
+          ))}
+        </OptionsContainer>
+
+        <h3>Where can you play this game?</h3>
+        <OptionsContainer>
+          {locations.map((location) => (
+            <PreferencesButton
+              key={location.value}
+              preference={location}
+              selectedPreferences={selectedLocations}
+              setPreferences={setSelectedLocations}
+              textKey="desc"
+            />
+          ))}
+        </OptionsContainer>
+        <SubmitButton onClick={handleSubmit}>Submit This Game</SubmitButton>
+      </Section>
     </MainForm>
   );
 }
 const MainForm = styled.main`
+  display: grid;
+  height: 92vh;
+  grid-template-rows: auto 4rem;
   padding: 1rem;
+`;
+const ButtonRight = styled.div`
+  justify-content: flex-end;
+  margin: 10px 0 0;
+  grid-row: 2;
 `;
 const TextInput = styled.input`
   width: 100%;
@@ -227,7 +209,7 @@ const TextInput = styled.input`
 `;
 const GameInfoTextArea = styled.textarea`
   width: 100%;
-  height: 80px;
+  height: 8rem;
   border-radius: 5px;
   padding: 0.5rem 0.5rem;
   box-sizing: border-box;
@@ -244,4 +226,25 @@ const GameInfoTextArea = styled.textarea`
     box-shadow: 5px 5px 0px rgba(0, 123, 255);
     outline: none;
 
+`;
+
+const Section = styled.section`
+  display: ${(props) => (props.active ? "block" : "none")};
+`;
+const Button = styled.button`
+  padding: 0.8rem 1.2rem;
+  grid-row: 2;
+  margin-top: 1rem;
+  background-color: black;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  word-spacing: 3px;
+`;
+
+const OptionsContainer = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 60px 60px;
+  gap: 1rem;
 `;

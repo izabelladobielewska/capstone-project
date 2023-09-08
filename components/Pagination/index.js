@@ -24,4 +24,5 @@ const Button = styled.button`
   border: none;
   border-radius: 8px;
   color: white;
+  word-spacing: 5px;
 `;
