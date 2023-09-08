@@ -56,6 +56,10 @@ export default function CardDeck({
     return isAGoodGameSuggestion;
   });
 
+  if (filteredCards.length && currentIndex > filteredCards.length - 1) {
+    setCurrentIndex(filteredCards.length - 1);
+  }
+
   /*shuffle will be added here*/
   function handleNext() {
     if (currentIndex === filteredCards.length - 1) {

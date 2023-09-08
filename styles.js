@@ -44,6 +44,8 @@ export default createGlobalStyle`
     line-height: 1.3rem;
     font-size: 0.95rem;
     color: #2D2A32;
+    hyphens: auto;
+    overflow-wrap: break-word;
   }
 h1{
   font-size: 1.5rem;

@@ -40,13 +40,16 @@ export default function Card({
     }
   }
   async function handleDelete() {
-    try {
-      await fetch(`/api/deleteGame?id=${card.id}`, {
-        method: "DELETE",
-      });
-      router.push("/");
-    } catch (e) {
-      console.error(e);
+    if (confirm("Irretrievably delete this game?")) {
+      try {
+        await fetch(`/api/deleteGame?id=${card.id}`, {
+          method: "DELETE",
+        });
+        router.push("/");
+        mutateCards();
+      } catch (e) {
+        console.error(e);
+      }
     }
   }
 
@@ -164,6 +167,8 @@ const CardBody = styled.div`
 const StyledText = styled.p`
   white-space: pre-wrap;
   color: #210203;
+  hyphens: auto;
+  overflow-wrap: break-word;
 `;
 
 const CardFooter = styled.div`
