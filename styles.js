@@ -51,6 +51,7 @@ h1{
   font-size: 1.5rem;
   font-family: sans-serif;
 color: #2d2a32;
+
 }
 h2 {
   font-family: SF Pro Text;
@@ -62,14 +63,21 @@ h3 {
   padding: 1rem 0 0.5rem 0;
   font-family: SF Pro Text;
   color: #2d2a32;
+  }
+input, textarea {
+  font-family: 'Source Serif 4';
+  font-style: normal;
+  font-weight: 300;
+}
 
-  }  
 `;
 
 export const SubmitButton = styled.button`
   margin-top: 1rem;
   letter-spacing: 0.05em;
   border-radius: 8px;
+  position: relative;
+  display: block;
   border: none;
   width: 100%;
   padding: 0.8rem 1rem;
@@ -78,4 +86,21 @@ export const SubmitButton = styled.button`
   color: white;
   font-size: 1rem;
   font-weight: light;
+  box-shadow: 2px 5px 2px 2px #f3c3a8;
+  transition: 1s;
+  // &:before {
+  //   position: absolute;
+  //   content: "";
+  //   display: block;
+  //   width: 100%;
+  //   height: 100%;
+  //   border: 1px solid red;
+  //   top: 0;
+  //   left: 0;
+  // }
+  &:active {
+    transition: 1s;
+    box-shadow: inset 5px 5px 0px 0px #f3c3a8;
+    padding: 1.2rem 0.6rem 0.4rem 1.4rem;
+  }
 `;
