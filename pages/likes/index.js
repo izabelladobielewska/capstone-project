@@ -86,7 +86,7 @@ const Main = styled.main`
   height: 92vh;
 `;
 const Head = styled.main`
-  padding: 0rem 1rem 1rem 1rem;
+  padding: 0rem 1rem 2rem 1rem;
 `;
 const StyledText = styled.p`
   margin: 0px;

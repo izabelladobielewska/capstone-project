@@ -20,7 +20,7 @@ const Section = styled.section`
 `;
 const Button = styled.button`
   padding: 0.8rem 1.2rem;
-  background-color: black;
+  background-color: #2d2a32;
   border: none;
   border-radius: 8px;
   color: white;

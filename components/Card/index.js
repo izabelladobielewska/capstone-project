@@ -39,6 +39,19 @@ export default function Card({
       console.error(e);
     }
   }
+  async function handleDelete() {
+    if (confirm("Irretrievably delete this game?")) {
+      try {
+        await fetch(`/api/deleteGame?id=${card.id}`, {
+          method: "DELETE",
+        });
+        router.push("/");
+        mutateCards();
+      } catch (e) {
+        console.error(e);
+      }
+    }
+  }
 
   function handleEdit() {
     router.push(
@@ -82,14 +95,14 @@ export default function Card({
       </Section>
       <CardFooter>
         {myOwnCards.includes(card.id) && (
-          // <Delete onClick={handleDelete}>
-          <DeleteIcon
-            alt="link to delete this card"
-            color="black"
-            width="1.7rem"
-            height="1.7rem"
-          />
-          // </Delete>
+          <Delete onClick={handleDelete}>
+            <DeleteIcon
+              alt="link to delete this card"
+              color="black"
+              width="1.7rem"
+              height="1.7rem"
+            />
+          </Delete>
         )}
         <RatingBlock>
           <Rating handleRating={handleRating} rating={rating} />
@@ -119,7 +132,6 @@ const Article = styled.article`
   box-shadow: 7px 7px 0px #f3c3a8;
   border-radius: 10px;
   overflow-y: auto;
-  // max-height: 70vh;
   background-color: white;
   border: 0.1rem solid black;
 `;
@@ -150,13 +162,13 @@ const Likes = styled.div`
 
 const CardBody = styled.div`
   padding: 0px 20px 20px 20px;
-  // min-height: 51vh;
-  // overflow-y: auto;
 `;
 
 const StyledText = styled.p`
   white-space: pre-wrap;
   color: #210203;
+  hyphens: auto;
+  overflow-wrap: break-word;
 `;
 
 const CardFooter = styled.div`
@@ -166,7 +178,6 @@ const CardFooter = styled.div`
   align-items: center;
   align-self: end;
   border-top: 0.1rem solid black;
-  // background: white;
   width: 100%;
 `;
 const Delete = styled.div`

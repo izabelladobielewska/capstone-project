@@ -194,7 +194,7 @@ const TextInput = styled.input`
   width: 100%;
   padding: 0.5rem 0.5rem;
   box-sizing: border-box;
-  border: 1px solid #d0a7e2;
+  border: 1px solid #F07054;
   border-radius: 8px;
   background-color: transparent;
   font-size: 1rem;
@@ -213,7 +213,7 @@ const GameInfoTextArea = styled.textarea`
   border-radius: 5px;
   padding: 0.5rem 0.5rem;
   box-sizing: border-box;
-  border: 1px solid #d0a7e2;
+  border: 1px solid #F07054;
   border-radius: 8px;
   background-color: transparent;
   font-size: 1rem;
@@ -221,7 +221,7 @@ const GameInfoTextArea = styled.textarea`
   transition: border-color 0.3s, box-shadow 0.3s;
 
   &:focus {
-    border-color: #8447ff;
+    border-color: #F07054;
     background-color: rgba(255,255,255,.3);
     box-shadow: 5px 5px 0px rgba(0, 123, 255);
     outline: none;
@@ -235,7 +235,8 @@ const Button = styled.button`
   padding: 0.8rem 1.2rem;
   grid-row: 2;
   margin-top: 1rem;
-  background-color: black;
+  background-color: #2d2a32;
+
   border: none;
   border-radius: 8px;
   color: white;
@@ -244,6 +245,7 @@ const Button = styled.button`
 
 const OptionsContainer = styled.div`
   display: grid;
+  margin: 1rem 0 2rem 0;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 60px 60px;
   gap: 1rem;

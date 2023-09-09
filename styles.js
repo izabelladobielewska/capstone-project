@@ -10,11 +10,6 @@ export default createGlobalStyle`
     
   }
   :root {
-    --base-color: #fff;
-    --primary-color: #210203;
-    --secondary-color: #D0A7E2;
-    --terciary-color: #37A994;
-    purple: #3F0469
   }
 
   html, body {
@@ -36,57 +31,71 @@ export default createGlobalStyle`
     
  
   a {
-    color: black;
+    color: #2D2A32;
     text-decoration: none;
   }
   p, span {
-    font-family: SF Pro Text;
+    font-family: sans-serif;
     line-height: 1.3rem;
     font-size: 0.95rem;
+    color: #2D2A32;
+    hyphens: auto;
+    overflow-wrap: break-word;
   }
 h1{
   font-size: 1.5rem;
-  font-family: Bodoni;
+  font-family: sans-serif;
+color: #2d2a32;
 
 }
 h2 {
   font-family: SF Pro Text;
+  color: #2d2a32;
+
 }
 
 h3 {
   padding: 1rem 0 0.5rem 0;
   font-family: SF Pro Text;
-  }  
-`;
-export const StyledCheckboxLabel = styled.label`
-  line-height: 1.5rem;
-  font-size: 1rem;
-`;
-export const StyledCheckbox = styled.input.attrs({ type: "checkbox" })`
-  appearance: none;
-  vertical-align: text-bottom;
-  width: 1rem;
-  height: 1rem;
-  border: 1px solid #8447ff;
-  border-radius: 4px;
-  margin-right: 0.5rem;
-  cursor: pointer;
-  &:checked {
-    background-color: #8447ff;
-    border-color: #8447ff;
-    color: white;
+  color: #2d2a32;
   }
+input, textarea {
+  font-family: 'Source Serif 4';
+  font-style: normal;
+  font-weight: 300;
+}
+
 `;
+
 export const SubmitButton = styled.button`
   margin-top: 1rem;
   letter-spacing: 0.05em;
   border-radius: 8px;
+  position: relative;
+  display: block;
   border: none;
   width: 100%;
   padding: 0.8rem 1rem;
-  background-color: black;
+  background-color: #2d2a32;
   bottom: 1rem;
   color: white;
   font-size: 1rem;
   font-weight: light;
+  box-shadow: 2px 5px 2px 2px #f3c3a8;
+  transition: 1s;
+  // &:before {
+  //   position: absolute;
+  //   content: "";
+  //   display: block;
+  //   width: 100%;
+  //   height: 100%;
+  //   border: 1px solid red;
+  //   top: 0;
+  //   left: 0;
+  // }
+  &:active {
+    transition: 1s;
+    box-shadow: inset 5px 5px 0px 0px #f3c3a8;
+    padding: 1.2rem 0.6rem 0.4rem 1.4rem;
+  }
 `;
