@@ -10,11 +10,6 @@ export default createGlobalStyle`
     
   }
   :root {
-    // --base-color: #fff;
-    // --primary-color: #210203;
-    // --secondary-color: #D0A7E2;
-    // --terciary-color: #37A994;
-    // purple: #3F0469
   }
 
   html, body {
