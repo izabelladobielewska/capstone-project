@@ -33,6 +33,3 @@ const Button = styled.button`
   border: 2px solid #f07054;
   padding: 0.5em 1rem;
 `;
-// #AA99FF
-// #F07054
-// #775cff

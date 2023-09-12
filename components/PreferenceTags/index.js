@@ -20,7 +20,7 @@ export default function PreferenceTags({
       <Section>
         {selectedLocations.map((location) => (
           <Tag key={location} category="location">
-            {location + " "}
+            {location}
             <span
               onClick={() => {
                 setSelectedLocations(
@@ -30,13 +30,13 @@ export default function PreferenceTags({
                 );
               }}
             >
-              &times;
+              &#160; &times;
             </span>
           </Tag>
         ))}
         {selectedWeathers.map((weather) => (
           <Tag key={weather} category="weather">
-            {weather + " "}
+            {weather}
             <span
               onClick={() => {
                 setSelectedWeathers(
@@ -46,13 +46,13 @@ export default function PreferenceTags({
                 );
               }}
             >
-              &times;
+              &#160; &times;
             </span>
           </Tag>
         ))}
         {selectedCompanions.map((company) => (
           <Tag key={company} category="company">
-            {company + " "}
+            {company}
             <span
               onClick={() => {
                 setSelectedCompanions(
@@ -62,7 +62,7 @@ export default function PreferenceTags({
                 );
               }}
             >
-              &times;
+              &#160; &times;
             </span>
           </Tag>
         ))}
@@ -75,9 +75,11 @@ const Main = styled.main`
 `;
 const Tag = styled.div`
   display: inline-block;
-  padding: 7px 12px 9px;
+  padding: 8px 14px 10px;
   border-radius: 25px;
-  font-size: 0.8rem;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  font-family: sans-serif;
   background-color: ${(props) => {
     if (props.category === "location") return "#9BBFC2";
     if (props.category === "weather") return "#5DB3FD";
@@ -87,6 +89,7 @@ const Tag = styled.div`
 `;
 const Section = styled.section`
   display: flex;
+  font: sans-serif;
   flex-wrap: wrap;
   padding: 0.7rem 0rem;
   justify-content: flex-end;

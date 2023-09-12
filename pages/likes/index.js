@@ -92,7 +92,8 @@ const StyledText = styled.p`
   margin: 0px;
 `;
 const Lynk = styled(Link)`
-  text-decoration: underline 3px black;
+  text-decoration: underline 2px #9c77f8;
+  text-underline-offset: 5px;
 `;
 const Ymage = styled(Image)`
   postion: absolute;

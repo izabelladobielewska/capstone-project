@@ -52,7 +52,6 @@ const Nav = styled.header`
 const BrandLink = styled(Link)`
   grid-column: 4 / span 2;
   color: #2d2a32;
-  // color: #f07054;
   letter-spacing: 1px;
   place-self: center;
   background-color: transparent;
@@ -60,10 +59,12 @@ const BrandLink = styled(Link)`
   margin: 0.5em 0em 0.5em 0;
   padding: 0;
   text-decoration: none;
-  &:active {
-    opacity: 0.5;
-  }
   transition: 0.3s;
+  &:active {
+    h1 {
+      color: #f07054;
+    }
+  }
 `;
 const AddLink = styled(Link)`
   grid-column: 1;
@@ -72,6 +73,11 @@ const AddLink = styled(Link)`
   border: none;
   padding: 0;
   text-decoration: none;
+  &:active {
+    svg {
+      fill: #f07054;
+    }
+  }
 `;
 const LikesLink = styled(Link)`
   grid-column: 7;
@@ -80,6 +86,9 @@ const LikesLink = styled(Link)`
   border: none;
   padding: 0;
   text-decoration: none;
+  &:active {
+    color: #f07054;
+  }
 `;
 const PreferenceLink = styled(Link)`
   grid-column: 8;
@@ -88,11 +97,10 @@ const PreferenceLink = styled(Link)`
   border: none;
   padding: 0;
   text-decoration: none;
-
-  svg {
-    opacity: ${(props) =>
-      props.pathname === "/preferences-form" ? "1" : "0.8"};
-    transition: 1s;
+  &:active {
+    svg {
+      fill: #f07054;
+    }
   }
 `;
 const LikeIcon = styled(FontAwesomeIcon)`

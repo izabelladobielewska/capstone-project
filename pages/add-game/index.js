@@ -86,7 +86,7 @@ export default function AddGame({ db, myOwnCards, setMyOwnCards }) {
 
   return (
     <MainForm>
-      <Section active={step === 0}>
+      <Section display={step === 0 ? "block" : "none"}>
         <label htmlFor="name">
           <h3>What is the name of your game?:</h3>
         </label>
@@ -134,7 +134,7 @@ export default function AddGame({ db, myOwnCards, setMyOwnCards }) {
           <Button onClick={() => setStep(1)}>Next Step &#8594;</Button>
         </ButtonRight>
       </Section>
-      <Section active={step === 1}>
+      <Section display={step === 1 ? "block" : "none"}>
         <Button onClick={() => setStep(0)}>&#8592; Back</Button>
         <h3>Does one need company to play this game?</h3>
         <OptionsContainer>
@@ -229,7 +229,7 @@ const GameInfoTextArea = styled.textarea`
 `;
 
 const Section = styled.section`
-  display: ${(props) => (props.active ? "block" : "none")};
+  display: ${(props) => props.display};
 `;
 const Button = styled.button`
   padding: 0.8rem 1.2rem;
@@ -241,6 +241,9 @@ const Button = styled.button`
   border-radius: 8px;
   color: white;
   word-spacing: 3px;
+  &:active {
+    transform: translateY(3px);
+  }
 `;
 
 const OptionsContainer = styled.div`

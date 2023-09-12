@@ -37,11 +37,12 @@ export default createGlobalStyle`
   p, span {
     font-family: sans-serif;
     line-height: 1.3rem;
-    font-size: 0.95rem;
+    font-size: 1rem;
     color: #2D2A32;
     hyphens: auto;
     overflow-wrap: break-word;
   }
+  
 h1{
   font-size: 1.5rem;
   font-family: sans-serif;
@@ -49,22 +50,21 @@ color: #2d2a32;
 
 }
 h2 {
-  font-family: SF Pro Text;
+  font-family: sans-serif;
   color: #2d2a32;
 
 }
 
 h3 {
   padding: 1rem 0 0.5rem 0;
-  font-family: SF Pro Text;
+  font-family: sans-serif;
   color: #2d2a32;
   }
 input, textarea {
-  font-family: 'Source Serif 4';
+  font-family: sans-serif;
   font-style: normal;
   font-weight: 300;
 }
-
 `;
 
 export const SubmitButton = styled.button`
@@ -81,21 +81,9 @@ export const SubmitButton = styled.button`
   color: white;
   font-size: 1rem;
   font-weight: light;
-  box-shadow: 2px 5px 2px 2px #f3c3a8;
-  transition: 1s;
-  // &:before {
-  //   position: absolute;
-  //   content: "";
-  //   display: block;
-  //   width: 100%;
-  //   height: 100%;
-  //   border: 1px solid red;
-  //   top: 0;
-  //   left: 0;
-  // }
+  box-shadow: 0px 0px #c6b1fb;
   &:active {
-    transition: 1s;
-    box-shadow: inset 5px 5px 0px 0px #f3c3a8;
-    padding: 1.2rem 0.6rem 0.4rem 1.4rem;
+    box-shadow: 0px 0px 10px #f07054;
+    transform: translateY(3px);
   }
 `;

@@ -25,4 +25,7 @@ const Button = styled.button`
   border-radius: 8px;
   color: white;
   word-spacing: 5px;
+  &:active {
+    transform: translateY(3px);
+  }
 `;
