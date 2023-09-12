@@ -1,37 +1,38 @@
-# New Next Project
+# Endstagram – Capostone Project
 
-This project was created from the neue fische `next` template.
+Endstagram is a game app that propomotes analog activities, by offering ideas for off-screen entertainment. Understanding the influence of the screens on our health, I created this app, to encourage the users to activate their sensorium, by playing very-simple, and hopefully, fun games. 
+The users can browse already existing activites, specify their preferences, rate the games, but also add their own games. 
 
-You can [🔗 **use this template on CodeSandbox**](https://codesandbox.io/p/sandbox/github/neuefische/web-exercises/tree/main/templates/next?file=/README.md) or locally by running this command in your Terminal:
+They can as well edit or delete their own cards.
+I would be very happy if you tried it out and add a game of your own :) 
 
-```bash
-npx -y ghcd@latest neuefische/web-exercises/tree/main/templates/next my-app -i
-```
+## Demo:
+You can find the hosted version on Vercel: [Demo Version of Endstagram] (https://endstagram.vercel.app/)
 
-## Development
+Important: This demo is optimized for mobile screen.
 
-### Local Development
 
-To work locally, please install the dependencies using `npm i` first.
 
-Run `npm run dev` to start a development server and open the displayed URL in a browser.
+<img alt="Endstagram game card" height="600" src="https://github.com/izabelladobielewska/capstone-project/assets/137038301/c91c1568-30ee-4463-b2c6-619f8d811f86">
+<img alt="Endstagram game preferences-page" height="600" src="https://github.com/izabelladobielewska/capstone-project/assets/137038301/e4179b00-a4ee-4795-b1df-a57e9e012dbf">
+<img alt="Endstagram selected preferences" height="600" src="https://github.com/izabelladobielewska/capstone-project/assets/137038301/9c58a377-7023-4536-8160-7261f5d94b4f">
 
-Use `npm run test` to run the tests.
+### Tech Stack
+React
+React Hooks
+React Router
+Next
+JavaScript
+styled-components
+localStorage
+npm
+Vercel
 
-### CodeSandbox Cloud
 
-Select the "Preview: 3000" tab to view this project.
-
-Select the "Tests: logs" tab to view the tests.
-
-> The `npm run dev` and `npm run test` scripts run automatically.
-
-### Scripts
-
-You can use the following commands:
-
-- `npm run dev` to start a development server
-- `npm run build` to build the project
-- `npm run start` to start a production server
-- `npm run test` to run the tests
-- `npm run lint` to run the linter
+### Project Setup
+Clone this repository
+You don't need an API key
+Install all dependencies with $ npm install
+Run app in dev mode with $ npm run dev
+Server: http://localhost:3000/
+Run tests via $ npm run test
